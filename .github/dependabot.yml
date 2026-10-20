@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: docker
+    target-branch: main
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      docker:
+        patterns:
+          - '*'
+
+  - package-ecosystem: github-actions
+    target-branch: main
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      github-actions:
+        patterns:
+          - '*'
