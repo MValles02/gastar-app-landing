@@ -3,3 +3,8 @@
 .dockerignore
 README.md
 Dockerfile
+.gitignore
+
+.claude
+skills-lock.json
+node_modules
