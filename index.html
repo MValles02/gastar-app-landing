@@ -21,9 +21,7 @@
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* Hallmark · shape: Ledger Rows · genre: modern-minimal · theme: custom · job: sign up · idea: "the app's own cream-and-emerald ledger, shown by its real screens, one answer per screen" · vibe: "calm, precise, classic bank ledger"
  * paper: oklch(0.955 0.02 85) · accent: oklch(0.508 0.118 165.612) · display: Geist Mono · body: Geist Mono · hero: text left, the real Inicio card cropped large on the right · nav: wordmark left, theme control centre, one text link and one action right, no rule · footer: wordmark and one line left, four links right · imagery: the product (capture, 6 screens, light and dark) · signature: the Disponible card of the real app, cropped large in the hero
@@ -31,6 +29,7 @@
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S, the zigzag of screen and text could belong to any app page; led with ledger rows and the pesos and dolares statement to keep the sections unlike each other */
 /* Hallmark · dismissed 23 · the aura and the band glows are brand emerald gradients at 10 to 20 percent alpha behind the page text, contrast re-checked at AA in both themes, requested by owner */
 /* Hallmark · dismissed 59 · the count includes the closing band and the footer, every section holds a real screen or a statement, and the owner requested additions live inside existing sections */
+@font-face { font-family: 'Geist Mono'; src: url('/assets/fonts/GeistMono-Variable.woff2') format('woff2'); font-weight: 100 900; font-style: normal; font-display: swap; }
 :root {
   color-scheme: light dark;
   --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
