@@ -14,3 +14,5 @@ Deploys via Dokploy to gastar.app.
 ## Deploy
 
 Pushing to `main` builds the image, publishes it to `ghcr.io/mvalles02/gastar-app-landing` and triggers the Dokploy deploy webhook through Cloudflare Access. Required repo secrets: `DOKPLOY_WEBHOOK_URL`, `CF_ACCESS_CLIENT_ID`, `CF_ACCESS_CLIENT_SECRET`.
+
+The image serves `/version.txt` with the commit sha, and the deploy job waits until https://gastar.app serves the new sha (local `docker build`/`docker run` still work; `version.txt` reads `dev`). The Dockerfile COPYs an explicit file list, so new site assets must be added there.
