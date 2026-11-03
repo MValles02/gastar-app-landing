@@ -1,0 +1,14 @@
+pnpm-lock.yaml
+skills-lock.json
+
+# Vendored third-party skill (Hallmark)
+/.claude/
+
+# Canonical standards files: copied byte-for-byte from infra/standards/apps and
+# checked by infra's check-standards.mjs, so their formatting is owned there.
+/.gitattributes
+/.npmrc
+/.lintstagedrc.json
+/.husky/
+/.github/
+/docs/WORKFLOW.md
