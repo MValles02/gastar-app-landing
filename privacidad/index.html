@@ -452,16 +452,6 @@
         color: var(--color-ink-2);
         font-size: var(--text-sm);
       }
-      mark.todo {
-        background: color-mix(
-          in oklab,
-          var(--color-accent) 22%,
-          var(--color-paper)
-        );
-        color: var(--color-ink);
-        padding: 0 var(--space-2xs);
-        border-radius: var(--space-3xs);
-      }
     </style>
   </head>
   <body>
@@ -499,29 +489,13 @@
     <main id="main" class="container">
       <article>
         <h1>Política de privacidad</h1>
-        <p class="meta">
-          Última actualización:
-          <mark class="todo">[COMPLETAR: fecha de vigencia]</mark>
-        </p>
-        <p class="meta">
-          <mark class="todo">Borrador: este texto está en revisión.</mark>
-        </p>
+        <p class="meta">Última actualización: 5 de noviembre de 2026</p>
 
         <h2>1. Quién es responsable</h2>
         <p>
           El responsable del tratamiento de tus datos personales en Gastar
-          (gastar.app y web.gastar.app) es
-          <mark class="todo"
-            >[COMPLETAR: nombre o razón social del responsable]</mark
-          >, CUIT <mark class="todo">[COMPLETAR: CUIT]</mark>, con domicilio en
-          <mark class="todo">[COMPLETAR: domicilio]</mark>.
-        </p>
-        <p>
-          Inscripción de la base de datos ante la AAIP:
-          <mark class="todo"
-            >[COMPLETAR: inscripción de la base de datos ante la AAIP, si
-            corresponde]</mark
-          >.
+          (gastar.app y web.gastar.app) es Mateo Valles, con domicilio en Mar
+          del Plata, provincia de Buenos Aires, Argentina.
         </p>
 
         <h2>2. Qué datos guardamos</h2>
@@ -595,9 +569,8 @@
             hacia Gastar.
           </li>
           <li>
-            El proveedor del servidor donde corre Gastar:
-            <mark class="todo">[COMPLETAR: proveedor y país del servidor]</mark
-            >.
+            El proveedor del servidor donde corre Gastar: OVHcloud, en Canadá
+            (Beauharnois, Quebec).
           </li>
           <li>
             Autoridades, cuando una norma o una orden judicial válida nos lo
@@ -636,17 +609,19 @@
         <p>
           Tus datos se guardan en una base de datos PostgreSQL, y la app corre
           en contenedores Docker en un servidor virtual gestionado con Dokploy.
-          Proveedor y país del servidor:
-          <mark class="todo">[COMPLETAR: proveedor y país del servidor]</mark>.
+          Proveedor y país del servidor: OVHcloud, en Canadá (Beauharnois,
+          Quebec).
         </p>
         <p>
           El tráfico pasa por Cloudflare, que puede procesar datos fuera de la
           Argentina. Esto implica una transferencia internacional de datos
-          personales. Mecanismo aplicado:
-          <mark class="todo"
-            >[COMPLETAR: confirmar mecanismo de transferencia internacional
-            (art. 12 Ley 25.326)]</mark
-          >.
+          personales. Canadá está reconocido por la Agencia de Acceso a la
+          Información Pública como país con nivel adecuado de protección para el
+          sector privado (Disposición DNPDP 60-E/2016). Cloudflare (red y copias
+          de seguridad) y Resend (envío de emails) pueden tratar datos en
+          Estados Unidos; esas transferencias se hacen con tu consentimiento al
+          usar Gastar y bajo los compromisos de protección de datos de esos
+          proveedores.
         </p>
 
         <h2>7. Cuánto tiempo se conservan</h2>
@@ -659,16 +634,14 @@
             puede deshacer.
           </li>
           <li>
-            Copias de seguridad:
-            <mark class="todo"
-              >[COMPLETAR: si hay copias de seguridad y cuánto tiempo conservan
-              datos borrados]</mark
-            >.
+            Copias de seguridad: Sí. La base de datos se respalda cada hora (se
+            conservan las últimas 48 copias) y una vez por día (se conservan las
+            últimas 30), en Cloudflare R2. Los datos que borres pueden seguir en
+            esas copias hasta 30 días, hasta que las copias rotan y se eliminan.
           </li>
           <li>
-            Logs del servidor:
-            <mark class="todo">[COMPLETAR: plazo de conservación de logs]</mark
-            >.
+            Logs del servidor: se rotan por tamaño y se eliminan
+            automáticamente; no se guardan por un plazo fijo.
           </li>
         </ul>
 
@@ -710,10 +683,7 @@
         </p>
 
         <h2>10. Menores</h2>
-        <p>
-          Edad mínima para usar Gastar:
-          <mark class="todo">[COMPLETAR: edad mínima para usar Gastar]</mark>.
-        </p>
+        <p>Edad mínima para usar Gastar: 18 años.</p>
 
         <h2>11. Cambios a esta política</h2>
         <p>
