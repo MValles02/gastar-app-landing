@@ -1,258 +1,787 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es-AR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Política de privacidad · Gastar</title>
-<meta name="description" content="Qué datos guarda Gastar, para qué los usa, con quién se comparten y cómo ejercer tus derechos.">
-<link rel="canonical" href="https://gastar.app/privacidad/">
-<meta name="theme-color" content="#f6efe1" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)">
-<script>try{var t=localStorage.getItem('gastar-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-<link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" href="/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png">
-<link rel="preload" href="/assets/fonts/GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<style>
-/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S, the zigzag of screen and text could belong to any app page; led with ledger rows and the pesos and dolares statement to keep the sections unlike each other */
-:root {
-  color-scheme: light dark;
-  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
-  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem;
-  --text-display: clamp(2rem, 4vw + 1rem, 4.5rem);
-  --text-section: clamp(1.75rem, 2vw + 1rem, 2.75rem);
-  --text-statement: clamp(1.875rem, 3.2vw + 0.5rem, 3.5rem);
-  --text-lead: clamp(1.0625rem, 0.5vw + 0.9rem, 1.25rem);
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 600ms;
-  --container: 1360px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
-  --z-base: 1; --z-toast: 500;
-  /* light is the plain default; dark comes from the system or from data-theme below */
-  --color-paper: oklch(0.955 0.02 85);
-  --color-paper-2: oklch(0.98 0.012 85);
-  --color-paper-3: oklch(0.925 0.022 82);
-  --color-ink: oklch(0.18 0.012 60);
-  --color-ink-2: oklch(0.42 0.022 70);
-  --color-muted: oklch(0.42 0.022 70);
-  --color-rule: oklch(0.895 0.02 80);
-  --color-edge: oklch(0.68 0.025 70);
-  --color-accent: oklch(0.508 0.118 165.612);
-  --color-focus: oklch(0.508 0.118 165.612);
-  --grain-tint: color-mix(in oklab, var(--color-ink) 7%, transparent);
-  --color-accent-ink: oklch(0.979 0.021 166.113);
-  --font-display: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
-  --font-body: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
-  --radius-md: 0.625rem; --radius-card: 0.875rem; --rule-hair: 1px;
-  --tracking-display: -0.02em;
-}
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --color-paper: oklch(0.147 0.004 49.25); --color-paper-2: oklch(0.216 0.006 56.043); --color-paper-3: oklch(0.268 0.007 34.298); --color-ink: oklch(0.985 0.001 106.423); --color-ink-2: oklch(0.709 0.01 56.259); --color-muted: oklch(0.709 0.01 56.259); --color-rule: oklch(0.29 0.006 56); --color-edge: oklch(0.553 0.013 58.071); --color-accent: oklch(0.432 0.095 166.913); --color-focus: oklch(0.72 0.15 163); --grain-tint: color-mix(in oklab, var(--color-ink) 6%, transparent); } }
-:root[data-theme="dark"] { --color-paper: oklch(0.147 0.004 49.25); --color-paper-2: oklch(0.216 0.006 56.043); --color-paper-3: oklch(0.268 0.007 34.298); --color-ink: oklch(0.985 0.001 106.423); --color-ink-2: oklch(0.709 0.01 56.259); --color-muted: oklch(0.709 0.01 56.259); --color-rule: oklch(0.29 0.006 56); --color-edge: oklch(0.553 0.013 58.071); --color-accent: oklch(0.432 0.095 166.913); --color-focus: oklch(0.72 0.15 163); --grain-tint: color-mix(in oklab, var(--color-ink) 6%, transparent); }
-:root[data-theme="light"] { color-scheme: light; }
-:root[data-theme="dark"] { color-scheme: dark; }
-@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; } }
-@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Política de privacidad · Gastar</title>
+    <meta
+      name="description"
+      content="Qué datos guarda Gastar, para qué los usa, con quién se comparten y cómo ejercer tus derechos."
+    />
+    <link rel="canonical" href="https://gastar.app/privacidad/" />
+    <meta
+      name="theme-color"
+      content="#f6efe1"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0c0a09"
+      media="(prefers-color-scheme: dark)"
+    />
+    <script>
+      try {
+        var t = localStorage.getItem("gastar-theme");
+        if (t === "light" || t === "dark")
+          document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
+    <link
+      rel="preload"
+      href="/assets/fonts/GeistMono-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <style>
+      /* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S, the zigzag of screen and text could belong to any app page; led with ledger rows and the pesos and dolares statement to keep the sections unlike each other */
+      :root {
+        color-scheme: light dark;
+        --space-3xs: 2px;
+        --space-2xs: 4px;
+        --space-xs: 8px;
+        --space-sm: 12px;
+        --space-md: 16px;
+        --space-lg: 24px;
+        --space-xl: 40px;
+        --space-2xl: 64px;
+        --space-3xl: 96px;
+        --space-4xl: 144px;
+        --text-xs: 0.8125rem;
+        --text-sm: 0.875rem;
+        --text-md: 1rem;
+        --text-lg: 1.25rem;
+        --text-display: clamp(2rem, 4vw + 1rem, 4.5rem);
+        --text-section: clamp(1.75rem, 2vw + 1rem, 2.75rem);
+        --text-statement: clamp(1.875rem, 3.2vw + 0.5rem, 3.5rem);
+        --text-lead: clamp(1.0625rem, 0.5vw + 0.9rem, 1.25rem);
+        --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        --dur-micro: 120ms;
+        --dur-short: 220ms;
+        --dur-long: 600ms;
+        --container: 1360px;
+        --gutter: 64px;
+        --gap-columns: 32px;
+        --section-gap-s: 120px;
+        --section-gap: 144px;
+        --section-gap-l: 176px;
+        --z-base: 1;
+        --z-toast: 500;
+        /* light is the plain default; dark comes from the system or from data-theme below */
+        --color-paper: oklch(0.955 0.02 85);
+        --color-paper-2: oklch(0.98 0.012 85);
+        --color-paper-3: oklch(0.925 0.022 82);
+        --color-ink: oklch(0.18 0.012 60);
+        --color-ink-2: oklch(0.42 0.022 70);
+        --color-muted: oklch(0.42 0.022 70);
+        --color-rule: oklch(0.895 0.02 80);
+        --color-edge: oklch(0.68 0.025 70);
+        --color-accent: oklch(0.508 0.118 165.612);
+        --color-focus: oklch(0.508 0.118 165.612);
+        --grain-tint: color-mix(in oklab, var(--color-ink) 7%, transparent);
+        --color-accent-ink: oklch(0.979 0.021 166.113);
+        --font-display:
+          "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas,
+          monospace;
+        --font-body:
+          "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas,
+          monospace;
+        --radius-md: 0.625rem;
+        --radius-card: 0.875rem;
+        --rule-hair: 1px;
+        --tracking-display: -0.02em;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --color-paper: oklch(0.147 0.004 49.25);
+          --color-paper-2: oklch(0.216 0.006 56.043);
+          --color-paper-3: oklch(0.268 0.007 34.298);
+          --color-ink: oklch(0.985 0.001 106.423);
+          --color-ink-2: oklch(0.709 0.01 56.259);
+          --color-muted: oklch(0.709 0.01 56.259);
+          --color-rule: oklch(0.29 0.006 56);
+          --color-edge: oklch(0.553 0.013 58.071);
+          --color-accent: oklch(0.432 0.095 166.913);
+          --color-focus: oklch(0.72 0.15 163);
+          --grain-tint: color-mix(in oklab, var(--color-ink) 6%, transparent);
+        }
+      }
+      :root[data-theme="dark"] {
+        --color-paper: oklch(0.147 0.004 49.25);
+        --color-paper-2: oklch(0.216 0.006 56.043);
+        --color-paper-3: oklch(0.268 0.007 34.298);
+        --color-ink: oklch(0.985 0.001 106.423);
+        --color-ink-2: oklch(0.709 0.01 56.259);
+        --color-muted: oklch(0.709 0.01 56.259);
+        --color-rule: oklch(0.29 0.006 56);
+        --color-edge: oklch(0.553 0.013 58.071);
+        --color-accent: oklch(0.432 0.095 166.913);
+        --color-focus: oklch(0.72 0.15 163);
+        --grain-tint: color-mix(in oklab, var(--color-ink) 6%, transparent);
+      }
+      :root[data-theme="light"] {
+        color-scheme: light;
+      }
+      :root[data-theme="dark"] {
+        color-scheme: dark;
+      }
+      @media (max-width: 60rem) {
+        :root {
+          --gutter: 24px;
+          --section-gap-s: 80px;
+          --section-gap: 96px;
+          --section-gap-l: 120px;
+        }
+      }
+      @media (max-width: 40rem) {
+        :root {
+          --gutter: 16px;
+          --section-gap-s: 56px;
+          --section-gap: 72px;
+          --section-gap-l: 96px;
+          --gap-columns: 16px;
+        }
+      }
 
-*, *::before, *::after { box-sizing: border-box; }
-html, body { overflow-x: clip; }
-html { scrollbar-color: var(--color-edge) var(--color-paper); scroll-padding-top: var(--space-3xl); }
-body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; font-synthesis: none; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
-::selection { background: color-mix(in oklab, var(--color-accent) 22%, transparent); color: var(--color-ink); }
-:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
-a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
-h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 600; font-synthesis: none; overflow-wrap: break-word; min-width: 0; text-wrap: balance; letter-spacing: var(--tracking-display); }
-p { margin: 0; text-wrap: pretty; }
-p:not([class]) { max-width: 65ch; }
-img { max-width: 100%; height: auto; display: block; }
-svg { display: block; }
-ul, dl, figure { margin: 0; padding: 0; }
-li { list-style: none; }
-.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
-.num { font-variant-numeric: tabular-nums; }
-.skip { position: absolute; left: var(--space-md); top: calc(-1 * var(--space-3xl)); z-index: var(--z-toast); padding: var(--space-xs) var(--space-md); background: var(--color-ink); color: var(--color-paper); }
-.skip:focus-visible { top: var(--space-md); }
-/* texture: a fixed film of grain in the ink colour, lighter in dark; it never takes pointer events */
-@supports (mask-image: url(#x)) or (-webkit-mask-image: url(#x)) {
-.grain { position: fixed; inset: 0; z-index: var(--z-toast); pointer-events: none; background: var(--grain-tint); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mask-size: 200px 200px; }
-}
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        overflow-x: clip;
+      }
+      html {
+        scrollbar-color: var(--color-edge) var(--color-paper);
+        scroll-padding-top: var(--space-3xl);
+      }
+      body {
+        margin: 0;
+        background: var(--color-paper);
+        color: var(--color-ink);
+        font-family: var(--font-body);
+        font-size: var(--text-md);
+        line-height: 1.55;
+        font-synthesis: none;
+        -webkit-font-smoothing: antialiased;
+        caret-color: var(--color-accent);
+      }
+      ::selection {
+        background: color-mix(in oklab, var(--color-accent) 22%, transparent);
+        color: var(--color-ink);
+      }
+      :focus-visible {
+        outline: 2px solid var(--color-focus);
+        outline-offset: 2px;
+      }
+      a {
+        color: inherit;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.16em;
+      }
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-synthesis: none;
+        overflow-wrap: break-word;
+        min-width: 0;
+        text-wrap: balance;
+        letter-spacing: var(--tracking-display);
+      }
+      p {
+        margin: 0;
+        text-wrap: pretty;
+      }
+      p:not([class]) {
+        max-width: 65ch;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      svg {
+        display: block;
+      }
+      ul,
+      dl,
+      figure {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      .container {
+        width: 100%;
+        max-width: var(--container);
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+      }
+      .num {
+        font-variant-numeric: tabular-nums;
+      }
+      .skip {
+        position: absolute;
+        left: var(--space-md);
+        top: calc(-1 * var(--space-3xl));
+        z-index: var(--z-toast);
+        padding: var(--space-xs) var(--space-md);
+        background: var(--color-ink);
+        color: var(--color-paper);
+      }
+      .skip:focus-visible {
+        top: var(--space-md);
+      }
+      /* texture: a fixed film of grain in the ink colour, lighter in dark; it never takes pointer events */
+      @supports (mask-image: url(#x)) or (-webkit-mask-image: url(#x)) {
+        .grain {
+          position: fixed;
+          inset: 0;
+          z-index: var(--z-toast);
+          pointer-events: none;
+          background: var(--grain-tint);
+          -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+          mask-size: 200px 200px;
+        }
+      }
 
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-xs); min-height: 44px; padding: 0 var(--space-md); border: 1px solid var(--color-accent); border-radius: var(--radius-md); background: var(--color-accent); color: var(--color-accent-ink); font: 500 var(--text-sm)/1 var(--font-body); white-space: nowrap; text-decoration: none; cursor: pointer; transition: opacity var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
-.btn:hover { opacity: 0.9; }
-.btn:active { transform: translateY(1px); }
-.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; transform: none; }
-.btn[aria-busy="true"] { cursor: progress; }
-.btn--quiet { background: transparent; color: var(--color-ink); border-color: var(--color-edge); }
-.btn--quiet:hover { opacity: 1; background: var(--color-paper-3); }
-.link { display: inline-flex; align-items: center; min-height: 44px; font-size: var(--text-sm); font-weight: 500; }
-.link:hover { text-decoration-thickness: 2px; }
-.theme { display: inline-flex; gap: var(--space-2xs); padding: var(--space-2xs); border-radius: var(--radius-md); background: var(--color-paper-3); }
-.theme[hidden] { display: none; }
-.theme button { min-height: 36px; padding: 0 var(--space-sm); border: 0; border-radius: var(--space-xs); background: transparent; color: var(--color-ink-2); font: 500 var(--text-sm)/1 var(--font-body); cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
-.theme button:hover { color: var(--color-ink); }
-.theme button:active { transform: translateY(1px); }
-.theme button:disabled { opacity: 0.5; cursor: not-allowed; }
-.theme button[aria-pressed="true"] { background: var(--color-paper); color: var(--color-ink); }
-@media (prefers-reduced-motion: reduce) { .btn, .theme button { transition: none; } .btn:active, .theme button:active { transform: none; } }
-/* nav */
-.nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-sm) var(--space-md); min-height: 72px; }
-.mark { display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 44px; font-size: var(--text-lg); font-weight: 600; text-decoration: none; color: var(--color-focus); }
-.nav-actions { display: flex; align-items: center; gap: var(--space-md); }
-/* footer */
-.foot { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: var(--space-lg); padding-block: var(--space-2xl); }
-.foot p { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-ink-2); }
-.foot ul { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); }
-.foot a { display: inline-flex; align-items: center; min-height: 44px; font-size: var(--text-sm); }
-@media (max-width: 40rem) { .theme { order: 3; flex: 1 1 100%; } .theme button { flex: 1; } }
-@media (max-width: 30rem) { .nav-actions .link { display: none; } }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-xs);
+        min-height: 44px;
+        padding: 0 var(--space-md);
+        border: 1px solid var(--color-accent);
+        border-radius: var(--radius-md);
+        background: var(--color-accent);
+        color: var(--color-accent-ink);
+        font: 500 var(--text-sm)/1 var(--font-body);
+        white-space: nowrap;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          opacity var(--dur-short) var(--ease-out),
+          background-color var(--dur-short) var(--ease-out),
+          transform var(--dur-micro) var(--ease-out);
+      }
+      .btn:hover {
+        opacity: 0.9;
+      }
+      .btn:active {
+        transform: translateY(1px);
+      }
+      .btn:disabled,
+      .btn[aria-disabled="true"] {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+      }
+      .btn[aria-busy="true"] {
+        cursor: progress;
+      }
+      .btn--quiet {
+        background: transparent;
+        color: var(--color-ink);
+        border-color: var(--color-edge);
+      }
+      .btn--quiet:hover {
+        opacity: 1;
+        background: var(--color-paper-3);
+      }
+      .link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        font-size: var(--text-sm);
+        font-weight: 500;
+      }
+      .link:hover {
+        text-decoration-thickness: 2px;
+      }
+      .theme {
+        display: inline-flex;
+        gap: var(--space-2xs);
+        padding: var(--space-2xs);
+        border-radius: var(--radius-md);
+        background: var(--color-paper-3);
+      }
+      .theme[hidden] {
+        display: none;
+      }
+      .theme button {
+        min-height: 36px;
+        padding: 0 var(--space-sm);
+        border: 0;
+        border-radius: var(--space-xs);
+        background: transparent;
+        color: var(--color-ink-2);
+        font: 500 var(--text-sm)/1 var(--font-body);
+        cursor: pointer;
+        transition:
+          background-color var(--dur-short) var(--ease-out),
+          color var(--dur-short) var(--ease-out);
+      }
+      .theme button:hover {
+        color: var(--color-ink);
+      }
+      .theme button:active {
+        transform: translateY(1px);
+      }
+      .theme button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .theme button[aria-pressed="true"] {
+        background: var(--color-paper);
+        color: var(--color-ink);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .btn,
+        .theme button {
+          transition: none;
+        }
+        .btn:active,
+        .theme button:active {
+          transform: none;
+        }
+      }
+      /* nav */
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-sm) var(--space-md);
+        min-height: 72px;
+      }
+      .mark {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-xs);
+        min-height: 44px;
+        font-size: var(--text-lg);
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--color-focus);
+      }
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+      }
+      /* footer */
+      .foot {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: var(--space-lg);
+        padding-block: var(--space-2xl);
+      }
+      .foot p {
+        margin-top: var(--space-sm);
+        font-size: var(--text-sm);
+        color: var(--color-ink-2);
+      }
+      .foot ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-xs) var(--space-lg);
+      }
+      .foot a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        font-size: var(--text-sm);
+      }
+      @media (max-width: 40rem) {
+        .theme {
+          order: 3;
+          flex: 1 1 100%;
+        }
+        .theme button {
+          flex: 1;
+        }
+      }
+      @media (max-width: 30rem) {
+        .nav-actions .link {
+          display: none;
+        }
+      }
 
-/* legal prose */
-article { max-width: 72ch; padding-block: var(--space-2xl) var(--space-3xl); }
-article h1 { font-size: var(--text-section); line-height: 1.12; }
-article h2 { font-size: var(--text-lg); line-height: 1.3; margin-top: var(--space-xl); }
-article p, article ul { margin-top: var(--space-sm); }
-article p:not([class]) { max-width: none; }
-article ul { padding-left: var(--space-lg); }
-article li { list-style: disc; margin-top: var(--space-2xs); }
-article .meta { margin-top: var(--space-md); color: var(--color-ink-2); font-size: var(--text-sm); }
-mark.todo { background: color-mix(in oklab, var(--color-accent) 22%, var(--color-paper)); color: var(--color-ink); padding: 0 var(--space-2xs); border-radius: var(--space-3xs); }
-</style>
-</head>
-<body>
-<a class="skip" href="#main">Ir al contenido</a>
-<header class="container nav">
-  <a class="mark" href="/" aria-label="Gastar, inicio">
-    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="8" fill="currentColor"/><path d="M8 11h12M8 17h12" stroke="var(--color-accent-ink)" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
-    Gastar
-  </a>
-  <div class="theme" role="group" aria-label="Tema" hidden>
-    <button type="button" data-theme-set="light" aria-pressed="false">Claro</button>
-    <button type="button" data-theme-set="dark" aria-pressed="false">Oscuro</button>
-    <button type="button" data-theme-set="system" aria-pressed="true">Sistema</button>
-  </div>
-  <div class="nav-actions">
-    <a class="link" href="https://web.gastar.app/login">Ingresar</a>
-    <a class="btn" href="https://web.gastar.app/signup">Crear cuenta</a>
-  </div>
-</header>
-<main id="main" class="container">
-<article>
-<h1>Política de privacidad</h1>
-<p class="meta">Última actualización: <mark class="todo">[COMPLETAR: fecha de vigencia]</mark></p>
-<p class="meta"><mark class="todo">Borrador: este texto está en revisión.</mark></p>
+      /* legal prose */
+      article {
+        max-width: 72ch;
+        padding-block: var(--space-2xl) var(--space-3xl);
+      }
+      article h1 {
+        font-size: var(--text-section);
+        line-height: 1.12;
+      }
+      article h2 {
+        font-size: var(--text-lg);
+        line-height: 1.3;
+        margin-top: var(--space-xl);
+      }
+      article p,
+      article ul {
+        margin-top: var(--space-sm);
+      }
+      article p:not([class]) {
+        max-width: none;
+      }
+      article ul {
+        padding-left: var(--space-lg);
+      }
+      article li {
+        list-style: disc;
+        margin-top: var(--space-2xs);
+      }
+      article .meta {
+        margin-top: var(--space-md);
+        color: var(--color-ink-2);
+        font-size: var(--text-sm);
+      }
+      mark.todo {
+        background: color-mix(
+          in oklab,
+          var(--color-accent) 22%,
+          var(--color-paper)
+        );
+        color: var(--color-ink);
+        padding: 0 var(--space-2xs);
+        border-radius: var(--space-3xs);
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#main">Ir al contenido</a>
+    <header class="container nav">
+      <a class="mark" href="/" aria-label="Gastar, inicio">
+        <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+          <rect width="28" height="28" rx="8" fill="currentColor" />
+          <path
+            d="M8 11h12M8 17h12"
+            stroke="var(--color-accent-ink)"
+            stroke-width="2"
+            stroke-linecap="round"
+            fill="none"
+          />
+        </svg>
+        Gastar
+      </a>
+      <div class="theme" role="group" aria-label="Tema" hidden>
+        <button type="button" data-theme-set="light" aria-pressed="false">
+          Claro
+        </button>
+        <button type="button" data-theme-set="dark" aria-pressed="false">
+          Oscuro
+        </button>
+        <button type="button" data-theme-set="system" aria-pressed="true">
+          Sistema
+        </button>
+      </div>
+      <div class="nav-actions">
+        <a class="link" href="https://web.gastar.app/login">Ingresar</a>
+        <a class="btn" href="https://web.gastar.app/signup">Crear cuenta</a>
+      </div>
+    </header>
+    <main id="main" class="container">
+      <article>
+        <h1>Política de privacidad</h1>
+        <p class="meta">
+          Última actualización:
+          <mark class="todo">[COMPLETAR: fecha de vigencia]</mark>
+        </p>
+        <p class="meta">
+          <mark class="todo">Borrador: este texto está en revisión.</mark>
+        </p>
 
-<h2>1. Quién es responsable</h2>
-<p>El responsable del tratamiento de tus datos personales en Gastar (gastar.app y web.gastar.app) es <mark class="todo">[COMPLETAR: nombre o razón social del responsable]</mark>, CUIT <mark class="todo">[COMPLETAR: CUIT]</mark>, con domicilio en <mark class="todo">[COMPLETAR: domicilio]</mark>.</p>
-<p>Inscripción de la base de datos ante la AAIP: <mark class="todo">[COMPLETAR: inscripción de la base de datos ante la AAIP, si corresponde]</mark>.</p>
+        <h2>1. Quién es responsable</h2>
+        <p>
+          El responsable del tratamiento de tus datos personales en Gastar
+          (gastar.app y web.gastar.app) es
+          <mark class="todo"
+            >[COMPLETAR: nombre o razón social del responsable]</mark
+          >, CUIT <mark class="todo">[COMPLETAR: CUIT]</mark>, con domicilio en
+          <mark class="todo">[COMPLETAR: domicilio]</mark>.
+        </p>
+        <p>
+          Inscripción de la base de datos ante la AAIP:
+          <mark class="todo"
+            >[COMPLETAR: inscripción de la base de datos ante la AAIP, si
+            corresponde]</mark
+          >.
+        </p>
 
-<h2>2. Qué datos guardamos</h2>
-<p>Datos de tu cuenta:</p>
-<ul>
-<li>Tu nombre y tu email.</li>
-<li>Si verificaste tu email o no.</li>
-<li>Tu contraseña, que guardamos únicamente como hash (nunca en texto legible). Se ingresa solo con email y contraseña; no hay inicio de sesión con Google ni con redes sociales.</li>
-</ul>
-<p>Datos financieros que cargás vos:</p>
-<ul>
-<li>Tus cuentas (nombre, moneda ARS o USD, saldo inicial, ícono y color).</li>
-<li>Tus categorías.</li>
-<li>Tus movimientos (ingresos, gastos y transferencias). El tipo de cambio de una transferencia lo escribís vos; Gastar no consulta cotizaciones automáticas.</li>
-<li>Tus movimientos recurrentes, tus planes de gasto mensuales y los límites por categoría.</li>
-</ul>
-<p>Los avisos que ves en la app se calculan a partir de esos datos y no se guardan por separado.</p>
-<p>Datos técnicos de sesión: cuando iniciás sesión guardamos un token de sesión, su vencimiento, tu dirección IP y el agente de usuario (navegador y dispositivo).</p>
-<p>Hoy Gastar no se conecta a Mercado Pago ni a bancos para tu cuenta. Si eso cambia, vamos a actualizar esta política antes de habilitarlo.</p>
+        <h2>2. Qué datos guardamos</h2>
+        <p>Datos de tu cuenta:</p>
+        <ul>
+          <li>Tu nombre y tu email.</li>
+          <li>Si verificaste tu email o no.</li>
+          <li>
+            Tu contraseña, que guardamos únicamente como hash (nunca en texto
+            legible). Se ingresa solo con email y contraseña; no hay inicio de
+            sesión con Google ni con redes sociales.
+          </li>
+        </ul>
+        <p>Datos financieros que cargás vos:</p>
+        <ul>
+          <li>
+            Tus cuentas (nombre, moneda ARS o USD, saldo inicial, ícono y
+            color).
+          </li>
+          <li>Tus categorías.</li>
+          <li>
+            Tus movimientos (ingresos, gastos y transferencias). El tipo de
+            cambio de una transferencia lo escribís vos; Gastar no consulta
+            cotizaciones automáticas.
+          </li>
+          <li>
+            Tus movimientos recurrentes, tus planes de gasto mensuales y los
+            límites por categoría.
+          </li>
+        </ul>
+        <p>
+          Los avisos que ves en la app se calculan a partir de esos datos y no
+          se guardan por separado.
+        </p>
+        <p>
+          Datos técnicos de sesión: cuando iniciás sesión guardamos un token de
+          sesión, su vencimiento, tu dirección IP y el agente de usuario
+          (navegador y dispositivo).
+        </p>
+        <p>
+          Hoy Gastar no se conecta a Mercado Pago ni a bancos para tu cuenta. Si
+          eso cambia, vamos a actualizar esta política antes de habilitarlo.
+        </p>
 
-<h2>3. Para qué los usamos</h2>
-<ul>
-<li>Para darte el servicio: mostrar tus cuentas, movimientos, planes y avisos.</li>
-<li>Para autenticarte y cuidar la seguridad de tu cuenta.</li>
-<li>Para enviarte emails transaccionales: verificación de email, restablecimiento de contraseña y un aviso cuando alguien intenta registrarse con un email que ya tiene cuenta.</li>
-</ul>
-<p>No enviamos publicidad ni newsletters. No vendemos tus datos, no los usamos para publicidad y no armamos perfiles sobre vos.</p>
+        <h2>3. Para qué los usamos</h2>
+        <ul>
+          <li>
+            Para darte el servicio: mostrar tus cuentas, movimientos, planes y
+            avisos.
+          </li>
+          <li>Para autenticarte y cuidar la seguridad de tu cuenta.</li>
+          <li>
+            Para enviarte emails transaccionales: verificación de email,
+            restablecimiento de contraseña y un aviso cuando alguien intenta
+            registrarse con un email que ya tiene cuenta.
+          </li>
+        </ul>
+        <p>
+          No enviamos publicidad ni newsletters. No vendemos tus datos, no los
+          usamos para publicidad y no armamos perfiles sobre vos.
+        </p>
 
-<h2>4. Con quién se comparten</h2>
-<ul>
-<li>Resend (resend.com), que envía los emails transaccionales mencionados arriba.</li>
-<li>Cloudflare, que actúa como CDN y proxy y aporta seguridad al tráfico hacia Gastar.</li>
-<li>El proveedor del servidor donde corre Gastar: <mark class="todo">[COMPLETAR: proveedor y país del servidor]</mark>.</li>
-<li>Autoridades, cuando una norma o una orden judicial válida nos lo exija.</li>
-</ul>
-<p>No usamos servicios de analítica, publicidad, rastreo ni monitoreo de errores, ni en la app ni en esta página.</p>
+        <h2>4. Con quién se comparten</h2>
+        <ul>
+          <li>
+            Resend (resend.com), que envía los emails transaccionales
+            mencionados arriba.
+          </li>
+          <li>
+            Cloudflare, que actúa como CDN y proxy y aporta seguridad al tráfico
+            hacia Gastar.
+          </li>
+          <li>
+            El proveedor del servidor donde corre Gastar:
+            <mark class="todo">[COMPLETAR: proveedor y país del servidor]</mark
+            >.
+          </li>
+          <li>
+            Autoridades, cuando una norma o una orden judicial válida nos lo
+            exija.
+          </li>
+        </ul>
+        <p>
+          No usamos servicios de analítica, publicidad, rastreo ni monitoreo de
+          errores, ni en la app ni en esta página.
+        </p>
 
-<h2>5. Cookies y almacenamiento local</h2>
-<p>En la app (web.gastar.app) usamos cookies estrictamente necesarias o funcionales, ninguna para rastreo:</p>
-<ul>
-<li>Una cookie de sesión, para mantenerte autenticado.</li>
-<li>Cookies de preferencias: tema, moneda preferida y última cuenta usada. Duran un año.</li>
-</ul>
-<p>Estas cookies son httpOnly, SameSite=Lax y Secure en producción. Además, la app usa un service worker que guarda archivos de la propia app para que pueda cargar sin conexión.</p>
-<p>Esta página (gastar.app) no usa cookies. Solo guarda el tema que elegís (Claro, Oscuro o Sistema) en el almacenamiento local de tu navegador, con la clave gastar-theme.</p>
+        <h2>5. Cookies y almacenamiento local</h2>
+        <p>
+          En la app (web.gastar.app) usamos cookies estrictamente necesarias o
+          funcionales, ninguna para rastreo:
+        </p>
+        <ul>
+          <li>Una cookie de sesión, para mantenerte autenticado.</li>
+          <li>
+            Cookies de preferencias: tema, moneda preferida y última cuenta
+            usada. Duran un año.
+          </li>
+        </ul>
+        <p>
+          Estas cookies son httpOnly, SameSite=Lax y Secure en producción.
+          Además, la app usa un service worker que guarda archivos de la propia
+          app para que pueda cargar sin conexión.
+        </p>
+        <p>
+          Esta página (gastar.app) no usa cookies. Solo guarda el tema que
+          elegís (Claro, Oscuro o Sistema) en el almacenamiento local de tu
+          navegador, con la clave gastar-theme.
+        </p>
 
-<h2>6. Dónde se guardan y transferencias internacionales</h2>
-<p>Tus datos se guardan en una base de datos PostgreSQL, y la app corre en contenedores Docker en un servidor virtual gestionado con Dokploy. Proveedor y país del servidor: <mark class="todo">[COMPLETAR: proveedor y país del servidor]</mark>.</p>
-<p>El tráfico pasa por Cloudflare, que puede procesar datos fuera de la Argentina. Esto implica una transferencia internacional de datos personales. Mecanismo aplicado: <mark class="todo">[COMPLETAR: confirmar mecanismo de transferencia internacional (art. 12 Ley 25.326)]</mark>.</p>
+        <h2>6. Dónde se guardan y transferencias internacionales</h2>
+        <p>
+          Tus datos se guardan en una base de datos PostgreSQL, y la app corre
+          en contenedores Docker en un servidor virtual gestionado con Dokploy.
+          Proveedor y país del servidor:
+          <mark class="todo">[COMPLETAR: proveedor y país del servidor]</mark>.
+        </p>
+        <p>
+          El tráfico pasa por Cloudflare, que puede procesar datos fuera de la
+          Argentina. Esto implica una transferencia internacional de datos
+          personales. Mecanismo aplicado:
+          <mark class="todo"
+            >[COMPLETAR: confirmar mecanismo de transferencia internacional
+            (art. 12 Ley 25.326)]</mark
+          >.
+        </p>
 
-<h2>7. Cuánto tiempo se conservan</h2>
-<ul>
-<li>Tus datos se conservan mientras tu cuenta esté activa.</li>
-<li>Podés eliminar tu cuenta cuando quieras desde la app ("Eliminar cuenta", con tu contraseña y una confirmación). Se borran de inmediato y de forma permanente la cuenta y todos sus datos. No se puede deshacer.</li>
-<li>Copias de seguridad: <mark class="todo">[COMPLETAR: si hay copias de seguridad y cuánto tiempo conservan datos borrados]</mark>.</li>
-<li>Logs del servidor: <mark class="todo">[COMPLETAR: plazo de conservación de logs]</mark>.</li>
-</ul>
+        <h2>7. Cuánto tiempo se conservan</h2>
+        <ul>
+          <li>Tus datos se conservan mientras tu cuenta esté activa.</li>
+          <li>
+            Podés eliminar tu cuenta cuando quieras desde la app ("Eliminar
+            cuenta", con tu contraseña y una confirmación). Se borran de
+            inmediato y de forma permanente la cuenta y todos sus datos. No se
+            puede deshacer.
+          </li>
+          <li>
+            Copias de seguridad:
+            <mark class="todo"
+              >[COMPLETAR: si hay copias de seguridad y cuánto tiempo conservan
+              datos borrados]</mark
+            >.
+          </li>
+          <li>
+            Logs del servidor:
+            <mark class="todo">[COMPLETAR: plazo de conservación de logs]</mark
+            >.
+          </li>
+        </ul>
 
-<h2>8. Tus derechos</h2>
-<p>Como titular de los datos, la Ley 25.326 de Protección de Datos Personales te reconoce estos derechos:</p>
-<ul>
-<li>Acceso: podés pedir información sobre tus datos personales. Es gratuito y podés ejercerlo a intervalos no inferiores a seis meses, salvo que acredites un interés legítimo (art. 14).</li>
-<li>Rectificación, actualización y supresión de tus datos (art. 16). Respondemos dentro de los plazos legales.</li>
-</ul>
-<p>Cómo ejercerlos: eliminá tu cuenta desde la app, o escribinos a <a href="mailto:soporte@gastar.app">soporte@gastar.app</a>. Hoy la app no tiene una función para exportar tus datos; los pedidos de acceso se hacen por email.</p>
-<p>La AGENCIA DE ACCESO A LA INFORMACIÓN PÚBLICA, en su carácter de Órgano de Control de la Ley N° 25.326, tiene la atribución de atender las denuncias y reclamos que interpongan quienes resulten afectados en sus derechos por incumplimiento de las normas vigentes en materia de protección de datos personales.</p>
+        <h2>8. Tus derechos</h2>
+        <p>
+          Como titular de los datos, la Ley 25.326 de Protección de Datos
+          Personales te reconoce estos derechos:
+        </p>
+        <ul>
+          <li>
+            Acceso: podés pedir información sobre tus datos personales. Es
+            gratuito y podés ejercerlo a intervalos no inferiores a seis meses,
+            salvo que acredites un interés legítimo (art. 14).
+          </li>
+          <li>
+            Rectificación, actualización y supresión de tus datos (art. 16).
+            Respondemos dentro de los plazos legales.
+          </li>
+        </ul>
+        <p>
+          Cómo ejercerlos: eliminá tu cuenta desde la app, o escribinos a
+          <a href="mailto:soporte@gastar.app">soporte@gastar.app</a>. Hoy la app
+          no tiene una función para exportar tus datos; los pedidos de acceso se
+          hacen por email.
+        </p>
+        <p>
+          La AGENCIA DE ACCESO A LA INFORMACIÓN PÚBLICA, en su carácter de
+          Órgano de Control de la Ley N° 25.326, tiene la atribución de atender
+          las denuncias y reclamos que interpongan quienes resulten afectados en
+          sus derechos por incumplimiento de las normas vigentes en materia de
+          protección de datos personales.
+        </p>
 
-<h2>9. Seguridad</h2>
-<p>Guardamos las contraseñas únicamente como hash, usamos HTTPS y limitamos el acceso a los datos. Ningún sistema es 100% seguro, así que no podemos garantizar una seguridad absoluta.</p>
+        <h2>9. Seguridad</h2>
+        <p>
+          Guardamos las contraseñas únicamente como hash, usamos HTTPS y
+          limitamos el acceso a los datos. Ningún sistema es 100% seguro, así
+          que no podemos garantizar una seguridad absoluta.
+        </p>
 
-<h2>10. Menores</h2>
-<p>Edad mínima para usar Gastar: <mark class="todo">[COMPLETAR: edad mínima para usar Gastar]</mark>.</p>
+        <h2>10. Menores</h2>
+        <p>
+          Edad mínima para usar Gastar:
+          <mark class="todo">[COMPLETAR: edad mínima para usar Gastar]</mark>.
+        </p>
 
-<h2>11. Cambios a esta política</h2>
-<p>Si cambiamos esta política, publicamos la versión nueva en esta página y actualizamos la fecha de última actualización. Si el cambio es importante, como habilitar una conexión con Mercado Pago o con bancos, lo actualizamos antes de que entre en funcionamiento.</p>
+        <h2>11. Cambios a esta política</h2>
+        <p>
+          Si cambiamos esta política, publicamos la versión nueva en esta página
+          y actualizamos la fecha de última actualización. Si el cambio es
+          importante, como habilitar una conexión con Mercado Pago o con bancos,
+          lo actualizamos antes de que entre en funcionamiento.
+        </p>
 
-<h2>12. Contacto</h2>
-<p>Escribinos a <a href="mailto:soporte@gastar.app">soporte@gastar.app</a>.</p>
-</article>
-</main>
+        <h2>12. Contacto</h2>
+        <p>
+          Escribinos a
+          <a href="mailto:soporte@gastar.app">soporte@gastar.app</a>.
+        </p>
+      </article>
+    </main>
 
-<footer class="container foot">
-  <div>
-    <a class="mark" href="/" aria-label="Gastar, inicio">Gastar</a>
-    <p>Un libro de cuentas privado para Argentina.</p>
-  </div>
-  <ul>
-    <li><a href="/privacidad/">Privacidad</a></li>
-    <li><a href="/terminos/">Términos</a></li>
-    <li><a href="mailto:soporte@gastar.app">Soporte</a></li>
-    <li><a href="https://web.gastar.app/login">Ingresar</a></li>
-  </ul>
-</footer>
-<div class="grain" aria-hidden="true"></div>
-<script>
-(function () {
-  var r = document.documentElement, k = 'gastar-theme', c = document.querySelector('.theme');
-  if (!c) return;
-  var bs = c.querySelectorAll('button');
-  function cur() { try { var t = localStorage.getItem(k); return t === 'light' || t === 'dark' ? t : 'system'; } catch (e) { return 'system'; } }
-  function show(v) { bs.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-theme-set') === v)); }); }
-  show(cur());
-  c.hidden = false;
-  bs.forEach(function (b) {
-    b.addEventListener('click', function () {
-      var v = b.getAttribute('data-theme-set');
-      if (v === 'system') r.removeAttribute('data-theme'); else r.setAttribute('data-theme', v);
-      try { if (v === 'system') localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) {}
-      show(v);
-    });
-  });
-})();
-</script>
-</body>
+    <footer class="container foot">
+      <div>
+        <a class="mark" href="/" aria-label="Gastar, inicio">Gastar</a>
+        <p>Un libro de cuentas privado para Argentina.</p>
+      </div>
+      <ul>
+        <li><a href="/privacidad/">Privacidad</a></li>
+        <li><a href="/terminos/">Términos</a></li>
+        <li><a href="mailto:soporte@gastar.app">Soporte</a></li>
+        <li><a href="https://web.gastar.app/login">Ingresar</a></li>
+      </ul>
+    </footer>
+    <div class="grain" aria-hidden="true"></div>
+    <script>
+      (function () {
+        var r = document.documentElement,
+          k = "gastar-theme",
+          c = document.querySelector(".theme");
+        if (!c) return;
+        var bs = c.querySelectorAll("button");
+        function cur() {
+          try {
+            var t = localStorage.getItem(k);
+            return t === "light" || t === "dark" ? t : "system";
+          } catch (e) {
+            return "system";
+          }
+        }
+        function show(v) {
+          bs.forEach(function (b) {
+            b.setAttribute(
+              "aria-pressed",
+              String(b.getAttribute("data-theme-set") === v),
+            );
+          });
+        }
+        show(cur());
+        c.hidden = false;
+        bs.forEach(function (b) {
+          b.addEventListener("click", function () {
+            var v = b.getAttribute("data-theme-set");
+            if (v === "system") r.removeAttribute("data-theme");
+            else r.setAttribute("data-theme", v);
+            try {
+              if (v === "system") localStorage.removeItem(k);
+              else localStorage.setItem(k, v);
+            } catch (e) {}
+            show(v);
+          });
+        });
+      })();
+    </script>
+  </body>
 </html>
