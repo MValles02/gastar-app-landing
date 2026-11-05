@@ -1,424 +1,1242 @@
 <!doctype html>
 <html lang="es-AR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gastar, tu libro de cuentas en pesos y dólares</title>
-<meta name="description" content="Cuánta plata tenés y cuánta podés gastar este mes. Anotá cada movimiento en segundos, con pesos y dólares por separado y sin conversiones.">
-<link rel="canonical" href="https://gastar.app/">
-<meta name="theme-color" content="#f6efe1" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://gastar.app/">
-<meta property="og:site_name" content="Gastar">
-<meta property="og:locale" content="es_AR">
-<meta property="og:title" content="Gastar, tu libro de cuentas en pesos y dólares">
-<meta property="og:description" content="Cuánta plata tenés y cuánta podés gastar este mes. Pesos y dólares por separado, sin conversiones.">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gastar, tu libro de cuentas en pesos y dólares">
-<meta name="twitter:description" content="Cuánta plata tenés y cuánta podés gastar este mes. Pesos y dólares por separado, sin conversiones.">
-<script>try{var t=localStorage.getItem('gastar-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-<link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" href="/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png">
-<link rel="preload" href="/assets/fonts/GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<style>
-/* Hallmark · shape: Ledger Rows · genre: modern-minimal · theme: custom · job: sign up · idea: "the app's own cream-and-emerald ledger, shown by its real screens, one answer per screen" · vibe: "calm, precise, classic bank ledger"
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gastar, tu libro de cuentas en pesos y dólares</title>
+    <meta
+      name="description"
+      content="Cuánta plata tenés y cuánta podés gastar este mes. Anotá cada movimiento en segundos, con pesos y dólares por separado y sin conversiones."
+    />
+    <link rel="canonical" href="https://gastar.app/" />
+    <meta
+      name="theme-color"
+      content="#f6efe1"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0c0a09"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gastar.app/" />
+    <meta property="og:site_name" content="Gastar" />
+    <meta property="og:locale" content="es_AR" />
+    <meta
+      property="og:title"
+      content="Gastar, tu libro de cuentas en pesos y dólares"
+    />
+    <meta
+      property="og:description"
+      content="Cuánta plata tenés y cuánta podés gastar este mes. Pesos y dólares por separado, sin conversiones."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Gastar, tu libro de cuentas en pesos y dólares"
+    />
+    <meta
+      name="twitter:description"
+      content="Cuánta plata tenés y cuánta podés gastar este mes. Pesos y dólares por separado, sin conversiones."
+    />
+    <script>
+      try {
+        var t = localStorage.getItem("gastar-theme");
+        if (t === "light" || t === "dark")
+          document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
+    <link
+      rel="preload"
+      href="/assets/fonts/GeistMono-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <style>
+      /* Hallmark · shape: Ledger Rows · genre: modern-minimal · theme: custom · job: sign up · idea: "the app's own cream-and-emerald ledger, shown by its real screens, one answer per screen" · vibe: "calm, precise, classic bank ledger"
  * paper: oklch(0.955 0.02 85) · accent: oklch(0.508 0.118 165.612) · display: Geist Mono · body: Geist Mono · hero: text left, the real Inicio card cropped large on the right · nav: wordmark left, theme control centre, one text link and one action right, no rule · footer: wordmark and one line left, four links right · imagery: the product (capture, 6 screens, light and dark) · signature: the Disponible card of the real app, cropped large in the hero
  * axes: light/mono-regular/chromatic-emerald · posture: Restrained · contrast: pass · fold: pass · v2.0.0 */
-/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S, the zigzag of screen and text could belong to any app page; led with ledger rows and the pesos and dolares statement to keep the sections unlike each other */
-/* Hallmark · dismissed 23 · the aura and the band glows are brand emerald gradients at 10 to 20 percent alpha behind the page text, contrast re-checked at AA in both themes, requested by owner */
-/* Hallmark · dismissed 59 · the count includes the closing band and the footer, every section holds a real screen or a statement, and the owner requested additions live inside existing sections */
-@font-face { font-family: 'Geist Mono'; src: url('/assets/fonts/GeistMono-Variable.woff2') format('woff2'); font-weight: 100 900; font-style: normal; font-display: swap; }
-:root {
-  color-scheme: light dark;
-  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
-  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem;
-  --text-display: clamp(2rem, 4vw + 1rem, 4.5rem);
-  --text-section: clamp(1.75rem, 2vw + 1rem, 2.75rem);
-  --text-statement: clamp(1.875rem, 3.2vw + 0.5rem, 3.5rem);
-  --text-lead: clamp(1.0625rem, 0.5vw + 0.9rem, 1.25rem);
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 600ms;
-  --container: 1360px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
-  --z-base: 1; --z-toast: 500;
-  /* light is the plain default; dark comes from the system or from data-theme below */
-  --color-paper: oklch(0.955 0.02 85);
-  --color-paper-2: oklch(0.98 0.012 85);
-  --color-paper-3: oklch(0.925 0.022 82);
-  --color-ink: oklch(0.18 0.012 60);
-  --color-ink-2: oklch(0.42 0.022 70);
-  --color-muted: oklch(0.42 0.022 70);
-  --color-rule: oklch(0.895 0.02 80);
-  --color-edge: oklch(0.68 0.025 70);
-  --color-accent: oklch(0.508 0.118 165.612);
-  --color-focus: oklch(0.508 0.118 165.612);
-  --grain-tint: color-mix(in oklab, var(--color-ink) 7%, transparent);
-  --color-accent-ink: oklch(0.979 0.021 166.113);
-  --font-display: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
-  --font-body: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
-  --radius-md: 0.625rem; --radius-card: 0.875rem; --rule-hair: 1px;
-  --tracking-display: -0.02em;
-}
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --color-paper: oklch(0.147 0.004 49.25); --color-paper-2: oklch(0.216 0.006 56.043); --color-paper-3: oklch(0.268 0.007 34.298); --color-ink: oklch(0.985 0.001 106.423); --color-ink-2: oklch(0.709 0.01 56.259); --color-muted: oklch(0.709 0.01 56.259); --color-rule: oklch(0.29 0.006 56); --color-edge: oklch(0.553 0.013 58.071); --color-accent: oklch(0.432 0.095 166.913); --color-focus: oklch(0.72 0.15 163); --grain-tint: color-mix(in oklab, var(--color-ink) 6%, transparent); } }
-:root[data-theme="dark"] { --color-paper: oklch(0.147 0.004 49.25); --color-paper-2: oklch(0.216 0.006 56.043); --color-paper-3: oklch(0.268 0.007 34.298); --color-ink: oklch(0.985 0.001 106.423); --color-ink-2: oklch(0.709 0.01 56.259); --color-muted: oklch(0.709 0.01 56.259); --color-rule: oklch(0.29 0.006 56); --color-edge: oklch(0.553 0.013 58.071); --color-accent: oklch(0.432 0.095 166.913); --color-focus: oklch(0.72 0.15 163); --grain-tint: color-mix(in oklab, var(--color-ink) 6%, transparent); }
-:root[data-theme="light"] { color-scheme: light; }
-:root[data-theme="dark"] { color-scheme: dark; }
-@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; } }
-@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
+      /* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S, the zigzag of screen and text could belong to any app page; led with ledger rows and the pesos and dolares statement to keep the sections unlike each other */
+      /* Hallmark · dismissed 23 · the aura and the band glows are brand emerald gradients at 10 to 20 percent alpha behind the page text, contrast re-checked at AA in both themes, requested by owner */
+      /* Hallmark · dismissed 59 · the count includes the closing band and the footer, every section holds a real screen or a statement, and the owner requested additions live inside existing sections */
+      @font-face {
+        font-family: "Geist Mono";
+        src: url("/assets/fonts/GeistMono-Variable.woff2") format("woff2");
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: swap;
+      }
+      :root {
+        color-scheme: light dark;
+        --space-3xs: 2px;
+        --space-2xs: 4px;
+        --space-xs: 8px;
+        --space-sm: 12px;
+        --space-md: 16px;
+        --space-lg: 24px;
+        --space-xl: 40px;
+        --space-2xl: 64px;
+        --space-3xl: 96px;
+        --space-4xl: 144px;
+        --text-xs: 0.8125rem;
+        --text-sm: 0.875rem;
+        --text-md: 1rem;
+        --text-lg: 1.25rem;
+        --text-display: clamp(2rem, 4vw + 1rem, 4.5rem);
+        --text-section: clamp(1.75rem, 2vw + 1rem, 2.75rem);
+        --text-statement: clamp(1.875rem, 3.2vw + 0.5rem, 3.5rem);
+        --text-lead: clamp(1.0625rem, 0.5vw + 0.9rem, 1.25rem);
+        --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        --dur-micro: 120ms;
+        --dur-short: 220ms;
+        --dur-long: 600ms;
+        --container: 1360px;
+        --gutter: 64px;
+        --gap-columns: 32px;
+        --section-gap-s: 120px;
+        --section-gap: 144px;
+        --section-gap-l: 176px;
+        --z-base: 1;
+        --z-toast: 500;
+        /* light is the plain default; dark comes from the system or from data-theme below */
+        --color-paper: oklch(0.955 0.02 85);
+        --color-paper-2: oklch(0.98 0.012 85);
+        --color-paper-3: oklch(0.925 0.022 82);
+        --color-ink: oklch(0.18 0.012 60);
+        --color-ink-2: oklch(0.42 0.022 70);
+        --color-muted: oklch(0.42 0.022 70);
+        --color-rule: oklch(0.895 0.02 80);
+        --color-edge: oklch(0.68 0.025 70);
+        --color-accent: oklch(0.508 0.118 165.612);
+        --color-focus: oklch(0.508 0.118 165.612);
+        --grain-tint: color-mix(in oklab, var(--color-ink) 7%, transparent);
+        --color-accent-ink: oklch(0.979 0.021 166.113);
+        --font-display:
+          "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas,
+          monospace;
+        --font-body:
+          "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas,
+          monospace;
+        --radius-md: 0.625rem;
+        --radius-card: 0.875rem;
+        --rule-hair: 1px;
+        --tracking-display: -0.02em;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --color-paper: oklch(0.147 0.004 49.25);
+          --color-paper-2: oklch(0.216 0.006 56.043);
+          --color-paper-3: oklch(0.268 0.007 34.298);
+          --color-ink: oklch(0.985 0.001 106.423);
+          --color-ink-2: oklch(0.709 0.01 56.259);
+          --color-muted: oklch(0.709 0.01 56.259);
+          --color-rule: oklch(0.29 0.006 56);
+          --color-edge: oklch(0.553 0.013 58.071);
+          --color-accent: oklch(0.432 0.095 166.913);
+          --color-focus: oklch(0.72 0.15 163);
+          --grain-tint: color-mix(in oklab, var(--color-ink) 6%, transparent);
+        }
+      }
+      :root[data-theme="dark"] {
+        --color-paper: oklch(0.147 0.004 49.25);
+        --color-paper-2: oklch(0.216 0.006 56.043);
+        --color-paper-3: oklch(0.268 0.007 34.298);
+        --color-ink: oklch(0.985 0.001 106.423);
+        --color-ink-2: oklch(0.709 0.01 56.259);
+        --color-muted: oklch(0.709 0.01 56.259);
+        --color-rule: oklch(0.29 0.006 56);
+        --color-edge: oklch(0.553 0.013 58.071);
+        --color-accent: oklch(0.432 0.095 166.913);
+        --color-focus: oklch(0.72 0.15 163);
+        --grain-tint: color-mix(in oklab, var(--color-ink) 6%, transparent);
+      }
+      :root[data-theme="light"] {
+        color-scheme: light;
+      }
+      :root[data-theme="dark"] {
+        color-scheme: dark;
+      }
+      @media (max-width: 60rem) {
+        :root {
+          --gutter: 24px;
+          --section-gap-s: 80px;
+          --section-gap: 96px;
+          --section-gap-l: 120px;
+        }
+      }
+      @media (max-width: 40rem) {
+        :root {
+          --gutter: 16px;
+          --section-gap-s: 56px;
+          --section-gap: 72px;
+          --section-gap-l: 96px;
+          --gap-columns: 16px;
+        }
+      }
 
-*, *::before, *::after { box-sizing: border-box; }
-html, body { overflow-x: clip; }
-html { scrollbar-color: var(--color-edge) var(--color-paper); scroll-padding-top: var(--space-3xl); }
-body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; font-synthesis: none; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
-::selection { background: color-mix(in oklab, var(--color-accent) 22%, transparent); color: var(--color-ink); }
-:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
-a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
-h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 600; font-synthesis: none; overflow-wrap: break-word; min-width: 0; text-wrap: balance; letter-spacing: var(--tracking-display); }
-p { margin: 0; text-wrap: pretty; }
-p:not([class]) { max-width: 65ch; }
-img { max-width: 100%; height: auto; display: block; }
-svg { display: block; }
-ul, dl, figure { margin: 0; padding: 0; }
-li { list-style: none; }
-.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
-.num { font-variant-numeric: tabular-nums; }
-.skip { position: absolute; left: var(--space-md); top: calc(-1 * var(--space-3xl)); z-index: var(--z-toast); padding: var(--space-xs) var(--space-md); background: var(--color-ink); color: var(--color-paper); }
-.skip:focus-visible { top: var(--space-md); }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        overflow-x: clip;
+      }
+      html {
+        scrollbar-color: var(--color-edge) var(--color-paper);
+        scroll-padding-top: var(--space-3xl);
+      }
+      body {
+        margin: 0;
+        background: var(--color-paper);
+        color: var(--color-ink);
+        font-family: var(--font-body);
+        font-size: var(--text-md);
+        line-height: 1.55;
+        font-synthesis: none;
+        -webkit-font-smoothing: antialiased;
+        caret-color: var(--color-accent);
+      }
+      ::selection {
+        background: color-mix(in oklab, var(--color-accent) 22%, transparent);
+        color: var(--color-ink);
+      }
+      :focus-visible {
+        outline: 2px solid var(--color-focus);
+        outline-offset: 2px;
+      }
+      a {
+        color: inherit;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.16em;
+      }
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-synthesis: none;
+        overflow-wrap: break-word;
+        min-width: 0;
+        text-wrap: balance;
+        letter-spacing: var(--tracking-display);
+      }
+      p {
+        margin: 0;
+        text-wrap: pretty;
+      }
+      p:not([class]) {
+        max-width: 65ch;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      svg {
+        display: block;
+      }
+      ul,
+      dl,
+      figure {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      .container {
+        width: 100%;
+        max-width: var(--container);
+        margin-inline: auto;
+        padding-inline: var(--gutter);
+      }
+      .num {
+        font-variant-numeric: tabular-nums;
+      }
+      .skip {
+        position: absolute;
+        left: var(--space-md);
+        top: calc(-1 * var(--space-3xl));
+        z-index: var(--z-toast);
+        padding: var(--space-xs) var(--space-md);
+        background: var(--color-ink);
+        color: var(--color-paper);
+      }
+      .skip:focus-visible {
+        top: var(--space-md);
+      }
 
-/* texture: a fixed film of grain in the ink colour, lighter in dark; it never takes pointer events */
-@supports (mask-image: url(#x)) or (-webkit-mask-image: url(#x)) {
-.grain { position: fixed; inset: 0; z-index: var(--z-toast); pointer-events: none; background: var(--grain-tint); -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); mask-size: 200px 200px; }
-}
+      /* texture: a fixed film of grain in the ink colour, lighter in dark; it never takes pointer events */
+      @supports (mask-image: url(#x)) or (-webkit-mask-image: url(#x)) {
+        .grain {
+          position: fixed;
+          inset: 0;
+          z-index: var(--z-toast);
+          pointer-events: none;
+          background: var(--grain-tint);
+          -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 -.3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+          mask-size: 200px 200px;
+        }
+      }
 
-/* controls */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-xs); min-height: 44px; padding: 0 var(--space-md); border: 1px solid var(--color-accent); border-radius: var(--radius-md); background: var(--color-accent); color: var(--color-accent-ink); font: 500 var(--text-sm)/1 var(--font-body); white-space: nowrap; text-decoration: none; cursor: pointer; transition: opacity var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
-.btn:hover { opacity: 0.9; }
-.btn:active { transform: translateY(1px); }
-.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; transform: none; }
-.btn[aria-busy="true"] { cursor: progress; }
-.btn--quiet { background: transparent; color: var(--color-ink); border-color: var(--color-edge); }
-.btn--quiet:hover { opacity: 1; background: var(--color-paper-3); }
-.link { display: inline-flex; align-items: center; min-height: 44px; font-size: var(--text-sm); font-weight: 500; }
-.link:hover { text-decoration-thickness: 2px; }
-.theme { display: inline-flex; gap: var(--space-2xs); padding: var(--space-2xs); border-radius: var(--radius-md); background: var(--color-paper-3); }
-.theme[hidden] { display: none; }
-.theme button { min-height: 36px; padding: 0 var(--space-sm); border: 0; border-radius: var(--space-xs); background: transparent; color: var(--color-ink-2); font: 500 var(--text-sm)/1 var(--font-body); cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
-.theme button:hover { color: var(--color-ink); }
-.theme button:active { transform: translateY(1px); }
-.theme button:disabled { opacity: 0.5; cursor: not-allowed; }
-.theme button[aria-pressed="true"] { background: var(--color-paper); color: var(--color-ink); }
-@media (prefers-reduced-motion: reduce) { .btn, .theme button { transition: none; } .btn:active, .theme button:active { transform: none; } }
+      /* controls */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-xs);
+        min-height: 44px;
+        padding: 0 var(--space-md);
+        border: 1px solid var(--color-accent);
+        border-radius: var(--radius-md);
+        background: var(--color-accent);
+        color: var(--color-accent-ink);
+        font: 500 var(--text-sm)/1 var(--font-body);
+        white-space: nowrap;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          opacity var(--dur-short) var(--ease-out),
+          background-color var(--dur-short) var(--ease-out),
+          transform var(--dur-micro) var(--ease-out);
+      }
+      .btn:hover {
+        opacity: 0.9;
+      }
+      .btn:active {
+        transform: translateY(1px);
+      }
+      .btn:disabled,
+      .btn[aria-disabled="true"] {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+      }
+      .btn[aria-busy="true"] {
+        cursor: progress;
+      }
+      .btn--quiet {
+        background: transparent;
+        color: var(--color-ink);
+        border-color: var(--color-edge);
+      }
+      .btn--quiet:hover {
+        opacity: 1;
+        background: var(--color-paper-3);
+      }
+      .link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        font-size: var(--text-sm);
+        font-weight: 500;
+      }
+      .link:hover {
+        text-decoration-thickness: 2px;
+      }
+      .theme {
+        display: inline-flex;
+        gap: var(--space-2xs);
+        padding: var(--space-2xs);
+        border-radius: var(--radius-md);
+        background: var(--color-paper-3);
+      }
+      .theme[hidden] {
+        display: none;
+      }
+      .theme button {
+        min-height: 36px;
+        padding: 0 var(--space-sm);
+        border: 0;
+        border-radius: var(--space-xs);
+        background: transparent;
+        color: var(--color-ink-2);
+        font: 500 var(--text-sm)/1 var(--font-body);
+        cursor: pointer;
+        transition:
+          background-color var(--dur-short) var(--ease-out),
+          color var(--dur-short) var(--ease-out);
+      }
+      .theme button:hover {
+        color: var(--color-ink);
+      }
+      .theme button:active {
+        transform: translateY(1px);
+      }
+      .theme button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .theme button[aria-pressed="true"] {
+        background: var(--color-paper);
+        color: var(--color-ink);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .btn,
+        .theme button {
+          transition: none;
+        }
+        .btn:active,
+        .theme button:active {
+          transform: none;
+        }
+      }
 
-/* nav */
-.nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-sm) var(--space-md); min-height: 72px; }
-.mark { display: inline-flex; align-items: center; gap: var(--space-xs); min-height: 44px; font-size: var(--text-lg); font-weight: 600; text-decoration: none; color: var(--color-focus); }
-.nav-actions { display: flex; align-items: center; gap: var(--space-md); }
+      /* nav */
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-sm) var(--space-md);
+        min-height: 72px;
+      }
+      .mark {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-xs);
+        min-height: 44px;
+        font-size: var(--text-lg);
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--color-focus);
+      }
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+      }
 
-/* sections */
-main { position: relative; }
-.section { padding-top: var(--section-gap); }
-.band { padding-block: var(--space-3xl); }
-main > .section + .band { margin-top: var(--section-gap); }
-.band + .section { padding-top: var(--space-2xl); }
-.band-2 { background: radial-gradient(60% 110% at 100% 0%, color-mix(in oklab, var(--color-accent) 10%, transparent), transparent 70%), var(--color-paper-2); color: var(--color-ink); }
-.band-3 { background: radial-gradient(55% 120% at 0% 100%, color-mix(in oklab, var(--color-accent) 10%, transparent), transparent 70%), var(--color-paper-3); color: var(--color-ink); }
-.split { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xl); align-items: center; }
-.split > * { grid-row: 1; min-width: 0; }
-h2 { font-size: var(--text-section); line-height: 1.12; }
-.lede { margin-top: var(--space-lg); font-size: var(--text-lead); color: var(--color-ink-2); }
-.rows { margin-top: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); }
-.rows > div { display: grid; grid-template-columns: var(--dt, 12.5rem) minmax(0, 1fr); gap: var(--space-md); padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); }
-.rows dt { font-weight: 600; }
-.rows dd { margin: 0; color: var(--color-ink-2); }
-.soon { display: grid; gap: var(--space-xs); margin-top: var(--space-lg); padding: var(--space-md) var(--space-lg); border: var(--rule-hair) dashed var(--color-edge); border-radius: var(--radius-md); }
-.soon .chip { justify-self: start; padding: var(--space-3xs) var(--space-sm); border-radius: 999px; background: var(--color-paper-3); font-size: var(--text-sm); font-weight: 500; }
-.soon p:not([class]) { color: var(--color-ink-2); }
-.soon strong { color: var(--color-ink); font-weight: 600; }
+      /* sections */
+      main {
+        position: relative;
+      }
+      .section {
+        padding-top: var(--section-gap);
+      }
+      .band {
+        padding-block: var(--space-3xl);
+      }
+      main > .section + .band {
+        margin-top: var(--section-gap);
+      }
+      .band + .section {
+        padding-top: var(--space-2xl);
+      }
+      .band-2 {
+        background:
+          radial-gradient(
+            60% 110% at 100% 0%,
+            color-mix(in oklab, var(--color-accent) 10%, transparent),
+            transparent 70%
+          ),
+          var(--color-paper-2);
+        color: var(--color-ink);
+      }
+      .band-3 {
+        background:
+          radial-gradient(
+            55% 120% at 0% 100%,
+            color-mix(in oklab, var(--color-accent) 10%, transparent),
+            transparent 70%
+          ),
+          var(--color-paper-3);
+        color: var(--color-ink);
+      }
+      .split {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        column-gap: var(--gap-columns);
+        row-gap: var(--space-xl);
+        align-items: center;
+      }
+      .split > * {
+        grid-row: 1;
+        min-width: 0;
+      }
+      h2 {
+        font-size: var(--text-section);
+        line-height: 1.12;
+      }
+      .lede {
+        margin-top: var(--space-lg);
+        font-size: var(--text-lead);
+        color: var(--color-ink-2);
+      }
+      .rows {
+        margin-top: var(--space-xl);
+        border-top: var(--rule-hair) solid var(--color-rule);
+      }
+      .rows > div {
+        display: grid;
+        grid-template-columns: var(--dt, 12.5rem) minmax(0, 1fr);
+        gap: var(--space-md);
+        padding-block: var(--space-md);
+        border-bottom: var(--rule-hair) solid var(--color-rule);
+      }
+      .rows dt {
+        font-weight: 600;
+      }
+      .rows dd {
+        margin: 0;
+        color: var(--color-ink-2);
+      }
+      .soon {
+        display: grid;
+        gap: var(--space-xs);
+        margin-top: var(--space-lg);
+        padding: var(--space-md) var(--space-lg);
+        border: var(--rule-hair) dashed var(--color-edge);
+        border-radius: var(--radius-md);
+      }
+      .soon .chip {
+        justify-self: start;
+        padding: var(--space-3xs) var(--space-sm);
+        border-radius: 999px;
+        background: var(--color-paper-3);
+        font-size: var(--text-sm);
+        font-weight: 500;
+      }
+      .soon p:not([class]) {
+        color: var(--color-ink-2);
+      }
+      .soon strong {
+        color: var(--color-ink);
+        font-weight: 600;
+      }
 
-/* captures */
-.shot { max-width: 400px; }
-.crop { aspect-ratio: var(--ar); overflow: hidden; border-radius: var(--radius-card); }
-.crop img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: var(--radius-card); outline: var(--rule-hair) solid var(--color-edge); outline-offset: -1px; }
-.shot figcaption { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-ink-2); }
-/* a capture follows the chosen theme: the system by default, data-theme when the visitor picks one */
-img.t-dark { display: none; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) img.t-light { display: none; } :root:not([data-theme="light"]) img.t-dark { display: block; } }
-:root[data-theme="dark"] img.t-light { display: none; }
-:root[data-theme="dark"] img.t-dark { display: block; }
+      /* captures */
+      .shot {
+        max-width: 400px;
+      }
+      .crop {
+        aspect-ratio: var(--ar);
+        overflow: hidden;
+        border-radius: var(--radius-card);
+      }
+      .crop img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        border-radius: var(--radius-card);
+        outline: var(--rule-hair) solid var(--color-edge);
+        outline-offset: -1px;
+      }
+      .shot figcaption {
+        margin-top: var(--space-sm);
+        font-size: var(--text-sm);
+        color: var(--color-ink-2);
+      }
+      /* a capture follows the chosen theme: the system by default, data-theme when the visitor picks one */
+      img.t-dark {
+        display: none;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) img.t-light {
+          display: none;
+        }
+        :root:not([data-theme="light"]) img.t-dark {
+          display: block;
+        }
+      }
+      :root[data-theme="dark"] img.t-light {
+        display: none;
+      }
+      :root[data-theme="dark"] img.t-dark {
+        display: block;
+      }
 
-/* hero */
-.aura { position: absolute; inset: -72px 0 auto 0; height: min(110svh, 1100px); z-index: -1; pointer-events: none; background: radial-gradient(38% 46% at 76% 48%, color-mix(in oklab, var(--color-accent) 20%, transparent), transparent 72%), radial-gradient(34% 40% at 8% 18%, color-mix(in oklab, var(--color-edge) 22%, transparent), transparent 70%); }
-.hero { min-height: calc(100svh - 72px); padding-block: var(--space-lg); align-content: center; }
-.hero h1 { font-size: var(--text-display); line-height: 1.1; max-width: 20ch; }
-.actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md); margin-top: var(--space-xl); }
-.hero .shot { --ar: 780 / 1100; width: 100%; max-width: 460px; justify-self: end; }
-.hero-text { grid-column: 1 / span 7; align-self: end; padding-bottom: var(--space-lg); }
-.hero .shot { grid-column: 8 / span 5; }
+      /* hero */
+      .aura {
+        position: absolute;
+        inset: -72px 0 auto 0;
+        height: min(110svh, 1100px);
+        z-index: -1;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            38% 46% at 76% 48%,
+            color-mix(in oklab, var(--color-accent) 20%, transparent),
+            transparent 72%
+          ),
+          radial-gradient(
+            34% 40% at 8% 18%,
+            color-mix(in oklab, var(--color-edge) 22%, transparent),
+            transparent 70%
+          );
+      }
+      .hero {
+        min-height: calc(100svh - 72px);
+        padding-block: var(--space-lg);
+        align-content: center;
+      }
+      .hero h1 {
+        font-size: var(--text-display);
+        line-height: 1.1;
+        max-width: 20ch;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-md);
+        margin-top: var(--space-xl);
+      }
+      .hero .shot {
+        --ar: 780 / 1100;
+        width: 100%;
+        max-width: 460px;
+        justify-self: end;
+      }
+      .hero-text {
+        grid-column: 1 / span 7;
+        align-self: end;
+        padding-bottom: var(--space-lg);
+      }
+      .hero .shot {
+        grid-column: 8 / span 5;
+      }
 
-/* sections below the hero */
-.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-columns); align-items: start; }
-.pair .shot { --ar: 780 / 1480; max-width: none; }
-.statement { font-size: var(--text-statement); line-height: 1.12; }
-.ledger { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-columns); margin-top: var(--space-2xl); }
-.ledger figure { padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-edge); }
-.ledger .figure { font-variant-numeric: tabular-nums; font-size: clamp(1.75rem, 3vw + 0.5rem, 3.25rem); font-weight: 600; line-height: 1.1; letter-spacing: var(--tracking-display); overflow-wrap: break-word; }
-.ledger figcaption { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-ink-2); }
-.s2-shot { grid-column: 1 / span 4; --ar: 780 / 1420; }
-.s2-text { grid-column: 5 / span 8; --dt: 10.5rem; }
-.s3-text { grid-column: 1 / span 7; --dt: 7rem; }
-.s3-shot { grid-column: 9 / span 4; --ar: 780 / 1500; justify-self: end; width: 100%; }
-.s4-shots { grid-column: 1 / span 7; }
-.s4-text { grid-column: 8 / span 5; --dt: 6.5rem; }
-.s5-text { grid-column: 1 / span 7; --dt: 8.5rem; }
-.s5-shot { grid-column: 9 / span 4; --ar: 780 / 900; }
-.s7-text { grid-column: 1 / span 7; }
-.s7-shots { grid-column: 8 / span 5; }
-.s7-shots .shot { --ar: 780 / 1100; }
-.s8-text { grid-column: 1 / span 8; }
-.s8-act { grid-column: 9 / span 4; justify-self: end; margin-top: 0; }
-@media (max-width: 40rem) { .pair, .ledger { grid-template-columns: minmax(0, 1fr); } .pair .shot { max-width: 400px; } .rows > div { grid-template-columns: minmax(0, 1fr); gap: var(--space-2xs); } }
+      /* sections below the hero */
+      .pair {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--gap-columns);
+        align-items: start;
+      }
+      .pair .shot {
+        --ar: 780 / 1480;
+        max-width: none;
+      }
+      .statement {
+        font-size: var(--text-statement);
+        line-height: 1.12;
+      }
+      .ledger {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--gap-columns);
+        margin-top: var(--space-2xl);
+      }
+      .ledger figure {
+        padding-top: var(--space-lg);
+        border-top: var(--rule-hair) solid var(--color-edge);
+      }
+      .ledger .figure {
+        font-variant-numeric: tabular-nums;
+        font-size: clamp(1.75rem, 3vw + 0.5rem, 3.25rem);
+        font-weight: 600;
+        line-height: 1.1;
+        letter-spacing: var(--tracking-display);
+        overflow-wrap: break-word;
+      }
+      .ledger figcaption {
+        margin-top: var(--space-sm);
+        font-size: var(--text-sm);
+        color: var(--color-ink-2);
+      }
+      .s2-shot {
+        grid-column: 1 / span 4;
+        --ar: 780 / 1420;
+      }
+      .s2-text {
+        grid-column: 5 / span 8;
+        --dt: 10.5rem;
+      }
+      .s3-text {
+        grid-column: 1 / span 7;
+        --dt: 7rem;
+      }
+      .s3-shot {
+        grid-column: 9 / span 4;
+        --ar: 780 / 1500;
+        justify-self: end;
+        width: 100%;
+      }
+      .s4-shots {
+        grid-column: 1 / span 7;
+      }
+      .s4-text {
+        grid-column: 8 / span 5;
+        --dt: 6.5rem;
+      }
+      .s5-text {
+        grid-column: 1 / span 7;
+        --dt: 8.5rem;
+      }
+      .s5-shot {
+        grid-column: 9 / span 4;
+        --ar: 780 / 900;
+      }
+      .s7-text {
+        grid-column: 1 / span 7;
+      }
+      .s7-shots {
+        grid-column: 8 / span 5;
+      }
+      .s7-shots .shot {
+        --ar: 780 / 1100;
+      }
+      .s8-text {
+        grid-column: 1 / span 8;
+      }
+      .s8-act {
+        grid-column: 9 / span 4;
+        justify-self: end;
+        margin-top: 0;
+      }
+      @media (max-width: 40rem) {
+        .pair,
+        .ledger {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .pair .shot {
+          max-width: 400px;
+        }
+        .rows > div {
+          grid-template-columns: minmax(0, 1fr);
+          gap: var(--space-2xs);
+        }
+      }
 
-/* footer */
-.foot { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: var(--space-lg); padding-block: var(--space-2xl); }
-.foot p { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-ink-2); }
-.foot ul { display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); }
-.foot a { display: inline-flex; align-items: center; min-height: 44px; font-size: var(--text-sm); }
+      /* footer */
+      .foot {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: var(--space-lg);
+        padding-block: var(--space-2xl);
+      }
+      .foot p {
+        margin-top: var(--space-sm);
+        font-size: var(--text-sm);
+        color: var(--color-ink-2);
+      }
+      .foot ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-xs) var(--space-lg);
+      }
+      .foot a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        font-size: var(--text-sm);
+      }
 
-@media (max-width: 60rem) {
-  .split > * { grid-column: 1 / -1 !important; grid-row: auto; }
-  .hero .shot { justify-self: start; }
-  .s3-shot, .s8-act { justify-self: start; }
-}
-@media (max-width: 40rem) { .theme { order: 3; flex: 1 1 100%; } .theme button { flex: 1; } }
-@media (max-width: 30rem) { .nav-actions .link { display: none; } }
+      @media (max-width: 60rem) {
+        .split > * {
+          grid-column: 1 / -1 !important;
+          grid-row: auto;
+        }
+        .hero .shot {
+          justify-self: start;
+        }
+        .s3-shot,
+        .s8-act {
+          justify-self: start;
+        }
+      }
+      @media (max-width: 40rem) {
+        .theme {
+          order: 3;
+          flex: 1 1 100%;
+        }
+        .theme button {
+          flex: 1;
+        }
+      }
+      @media (max-width: 30rem) {
+        .nav-actions .link {
+          display: none;
+        }
+      }
 
-/* motion: only when the visitor allows it, always from the visible state, never leaving anything hidden at rest */
-@media (prefers-reduced-motion: no-preference) {
-  @keyframes rise { from { opacity: 0; transform: translateY(var(--space-md)); } }
-  @keyframes drift { from { transform: translate3d(-2%, 1%, 0) scale(1); } to { transform: translate3d(3%, -2%, 0) scale(1.06); } }
-  .hero h1 .w { display: inline-block; animation: rise var(--dur-long) var(--ease-out) backwards; animation-delay: calc(var(--i) * 70ms); }
-  .hero .lede { animation: rise var(--dur-long) var(--ease-out) 480ms backwards; }
-  .hero .actions { animation: rise var(--dur-long) var(--ease-out) 560ms backwards; }
-  .hero .shot { animation: rise var(--dur-long) var(--ease-out) 360ms backwards; }
-  .aura { animation: drift 24s ease-in-out 3 alternate both; }
-  .link, .foot a { transition: text-decoration-thickness var(--dur-short) var(--ease-out); }
-}
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    main > section:not(.hero) :is(h2, .lede, .rows > div, .soon, .shot, .ledger figure, .actions) { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 40%; }
-  }
-}
-</style>
-</head>
-<body>
-<a class="skip" href="#main">Ir al contenido</a>
-<header class="container nav">
-  <a class="mark" href="/" aria-label="Gastar, inicio">
-    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="8" fill="currentColor"/><path d="M8 11h12M8 17h12" stroke="var(--color-accent-ink)" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
-    Gastar
-  </a>
-  <div class="theme" role="group" aria-label="Tema" hidden>
-    <button type="button" data-theme-set="light" aria-pressed="false">Claro</button>
-    <button type="button" data-theme-set="dark" aria-pressed="false">Oscuro</button>
-    <button type="button" data-theme-set="system" aria-pressed="true">Sistema</button>
-  </div>
-  <div class="nav-actions">
-    <a class="link" href="https://web.gastar.app/login">Ingresar</a>
-    <a class="btn" href="https://web.gastar.app/signup">Crear cuenta</a>
-  </div>
-</header>
-
-<main id="main">
-  <div class="aura" aria-hidden="true"></div>
-  <section class="hero container split" aria-labelledby="hero-title">
-    <div class="hero-text">
-      <h1 id="hero-title"><span class="w" style="--i:0">Cuánta</span> <span class="w" style="--i:1">plata</span> <span class="w" style="--i:2">tenés</span> <span class="w" style="--i:3">y</span> <span class="w" style="--i:4">cuánta</span> <span class="w" style="--i:5">podés</span> <span class="w" style="--i:6">gastar</span></h1>
-      <p class="lede">Disponible, saldo y resultado, en pesos y dólares.</p>
-      <div class="actions">
+      /* motion: only when the visitor allows it, always from the visible state, never leaving anything hidden at rest */
+      @media (prefers-reduced-motion: no-preference) {
+        @keyframes rise {
+          from {
+            opacity: 0;
+            transform: translateY(var(--space-md));
+          }
+        }
+        @keyframes drift {
+          from {
+            transform: translate3d(-2%, 1%, 0) scale(1);
+          }
+          to {
+            transform: translate3d(3%, -2%, 0) scale(1.06);
+          }
+        }
+        .hero h1 .w {
+          display: inline-block;
+          animation: rise var(--dur-long) var(--ease-out) backwards;
+          animation-delay: calc(var(--i) * 70ms);
+        }
+        .hero .lede {
+          animation: rise var(--dur-long) var(--ease-out) 480ms backwards;
+        }
+        .hero .actions {
+          animation: rise var(--dur-long) var(--ease-out) 560ms backwards;
+        }
+        .hero .shot {
+          animation: rise var(--dur-long) var(--ease-out) 360ms backwards;
+        }
+        .aura {
+          animation: drift 24s ease-in-out 3 alternate both;
+        }
+        .link,
+        .foot a {
+          transition: text-decoration-thickness var(--dur-short) var(--ease-out);
+        }
+      }
+      @supports (animation-timeline: view()) {
+        @media (prefers-reduced-motion: no-preference) {
+          main
+            > section:not(.hero)
+            :is(
+              h2,
+              .lede,
+              .rows > div,
+              .soon,
+              .shot,
+              .ledger figure,
+              .actions
+            ) {
+            animation: rise linear both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 40%;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#main">Ir al contenido</a>
+    <header class="container nav">
+      <a class="mark" href="/" aria-label="Gastar, inicio">
+        <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+          <rect width="28" height="28" rx="8" fill="currentColor" />
+          <path
+            d="M8 11h12M8 17h12"
+            stroke="var(--color-accent-ink)"
+            stroke-width="2"
+            stroke-linecap="round"
+            fill="none"
+          />
+        </svg>
+        Gastar
+      </a>
+      <div class="theme" role="group" aria-label="Tema" hidden>
+        <button type="button" data-theme-set="light" aria-pressed="false">
+          Claro
+        </button>
+        <button type="button" data-theme-set="dark" aria-pressed="false">
+          Oscuro
+        </button>
+        <button type="button" data-theme-set="system" aria-pressed="true">
+          Sistema
+        </button>
+      </div>
+      <div class="nav-actions">
+        <a class="link" href="https://web.gastar.app/login">Ingresar</a>
         <a class="btn" href="https://web.gastar.app/signup">Crear cuenta</a>
-        <a class="btn btn--quiet" href="https://web.gastar.app/login">Ya tengo cuenta</a>
       </div>
-    </div>
-    <figure class="shot">
-      <div class="crop">
-        <img class="t-light" src="assets/app/inicio-light.png" width="780" height="1688" alt="Pantalla de Inicio de Gastar: el disponible para gastar del mes, el saldo y el resultado del mes en pesos." fetchpriority="high">
-          <img class="t-dark" src="assets/app/inicio-dark.png" width="780" height="1688" alt="Pantalla de Inicio de Gastar: el disponible para gastar del mes, el saldo y el resultado del mes en pesos." loading="lazy">
-      </div>
-    </figure>
-  </section>
+    </header>
 
-  <section class="section container split" aria-labelledby="anotar-title">
-    <div class="s2-text">
-      <h2 id="anotar-title">Anotá un gasto en segundos</h2>
-      <dl class="rows">
-        <div><dt>Tres tipos</dt><dd>Ingreso, gasto o transferencia, con cuenta y categoría.</dd></div>
-        <div><dt>Repetir cada mes</dt><dd>Te lo recordamos el mismo día de cada mes.</dd></div>
-        <div><dt>Entre monedas</dt><dd>Pasá de pesos a dólares con tu propia cotización.</dd></div>
-      </dl>
-      <aside class="soon" aria-label="Próximamente">
-        <p class="chip">Próximamente</p>
-        <p><strong>Importá desde Mercado Pago.</strong></p>
-        <p>Llegan listos para que los apruebes o los descartes.</p>
-      </aside>
-    </div>
-    <figure class="shot s2-shot">
-      <div class="crop">
-        <img class="t-light" src="assets/app/nuevo-light.png" width="780" height="1688" loading="lazy" alt="Pantalla Nuevo movimiento de Gastar: selector de ingreso, gasto o transferencia, monto, descripción, cuenta, categoría, fecha y la opción Repetir cada mes.">
-          <img class="t-dark" src="assets/app/nuevo-dark.png" width="780" height="1688" loading="lazy" alt="Pantalla Nuevo movimiento de Gastar: selector de ingreso, gasto o transferencia, monto, descripción, cuenta, categoría, fecha y la opción Repetir cada mes.">
-      </div>
-    </figure>
-  </section>
-
-  <section class="band band-2" aria-labelledby="plan-title">
-    <div class="container split">
-      <div class="s3-text">
-        <h2 id="plan-title">Un tope por categoría</h2>
-        <p class="lede">Un plan en cinco pasos, con sugerencias.</p>
-        <dl class="rows">
-          <div><dt>Fijos</dt><dd>Los ingresos y pagos que se repiten cada mes.</dd></div>
-          <div><dt>Ahorro</dt><dd>Cuánto querés guardar cada mes.</dd></div>
-          <div><dt>Límites</dt><dd>Un tope mensual por categoría.</dd></div>
-        </dl>
-      </div>
-      <figure class="shot s3-shot">
-        <div class="crop">
-          <img class="t-light" src="assets/app/plan-light.png" width="780" height="1688" loading="lazy" alt="Pantalla Plan de Gastar: disponible del mes, ingresos, ahorro, pagos fijos pendientes y límites por categoría con el estado Vas rápido.">
-          <img class="t-dark" src="assets/app/plan-dark.png" width="780" height="1688" loading="lazy" alt="Pantalla Plan de Gastar: disponible del mes, ingresos, ahorro, pagos fijos pendientes y límites por categoría con el estado Vas rápido.">
+    <main id="main">
+      <div class="aura" aria-hidden="true"></div>
+      <section class="hero container split" aria-labelledby="hero-title">
+        <div class="hero-text">
+          <h1 id="hero-title">
+            <span class="w" style="--i: 0">Cuánta</span>
+            <span class="w" style="--i: 1">plata</span>
+            <span class="w" style="--i: 2">tenés</span>
+            <span class="w" style="--i: 3">y</span>
+            <span class="w" style="--i: 4">cuánta</span>
+            <span class="w" style="--i: 5">podés</span>
+            <span class="w" style="--i: 6">gastar</span>
+          </h1>
+          <p class="lede">Disponible, saldo y resultado, en pesos y dólares.</p>
+          <div class="actions">
+            <a class="btn" href="https://web.gastar.app/signup">Crear cuenta</a>
+            <a class="btn btn--quiet" href="https://web.gastar.app/login"
+              >Ya tengo cuenta</a
+            >
+          </div>
         </div>
-      </figure>
-    </div>
-  </section>
-
-  <section class="section container split" aria-labelledby="mes-title">
-    <div class="pair s4-shots">
-      <figure class="shot">
-        <div class="crop">
-          <img class="t-light" src="assets/app/reportes-light.png" width="780" height="1688" loading="lazy" alt="Pantalla Reportes de Gastar: resultado del mes con ingresos y gastos, y barras de los últimos seis meses.">
-          <img class="t-dark" src="assets/app/reportes-dark.png" width="780" height="1688" loading="lazy" alt="Pantalla Reportes de Gastar: resultado del mes con ingresos y gastos, y barras de los últimos seis meses.">
-        </div>
-        <figcaption>Reportes del mes.</figcaption>
-      </figure>
-      <figure class="shot">
-        <div class="crop">
-          <img class="t-light" src="assets/app/movimientos-light.png" width="780" height="1688" loading="lazy" alt="Pantalla Movimientos de Gastar: búsqueda, filtros y movimientos agrupados por día.">
-          <img class="t-dark" src="assets/app/movimientos-dark.png" width="780" height="1688" loading="lazy" alt="Pantalla Movimientos de Gastar: búsqueda, filtros y movimientos agrupados por día.">
-        </div>
-        <figcaption>Movimientos con filtros.</figcaption>
-      </figure>
-    </div>
-    <div class="s4-text">
-      <h2 id="mes-title">Mirá el mes entero</h2>
-      <p class="lede">Entendelo y encontrá cualquier gasto.</p>
-      <dl class="rows">
-        <div><dt>Reportes</dt><dd>Totales y barras de seis meses.</dd></div>
-        <div><dt>Gastos</dt><dd>Por categoría y promedio diario.</dd></div>
-        <div><dt>Mayor</dt><dd>Tu mayor gasto del mes.</dd></div>
-        <div><dt>Buscar</dt><dd>Por texto y con filtros.</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <section class="section container split" aria-labelledby="avisos-title">
-    <div class="s5-text">
-      <h2 id="avisos-title">Avisos de pagos y límites</h2>
-      <p class="lede">Los ves en la campana de la app.</p>
-      <dl class="rows">
-        <div><dt>Pago vencido</dt><dd>Cuántos días pasaron desde el vencimiento.</dd></div>
-        <div><dt>Vas rápido</dt><dd>Gastaste buena parte del límite y quedan días.</dd></div>
-        <div><dt>Te pasaste</dt><dd>Superaste el límite de una categoría.</dd></div>
-      </dl>
-    </div>
-    <figure class="shot s5-shot">
-      <div class="crop">
-        <img class="t-light" src="assets/app/avisos-light.png" width="780" height="1688" loading="lazy" alt="Pantalla Avisos de Gastar: un pago fijo vencido, una categoría que va rápido y otra que se pasó del límite.">
-          <img class="t-dark" src="assets/app/avisos-dark.png" width="780" height="1688" loading="lazy" alt="Pantalla Avisos de Gastar: un pago fijo vencido, una categoría que va rápido y otra que se pasó del límite.">
-      </div>
-    </figure>
-  </section>
-
-  <section class="band band-3" aria-labelledby="monedas-title">
-    <div class="container">
-      <h2 class="statement" id="monedas-title">Pesos y dólares, cada uno en su libro</h2>
-      <p class="lede">Nunca se convierten ni se suman. Cada moneda lleva su propio saldo.</p>
-      <div class="ledger">
-        <figure>
-          <p class="figure num">$1.234.568</p>
-          <figcaption>Así se escriben los pesos.</figcaption>
+        <figure class="shot">
+          <div class="crop">
+            <img
+              class="t-light"
+              src="assets/app/inicio-light.png"
+              width="780"
+              height="1688"
+              alt="Pantalla de Inicio de Gastar: el disponible para gastar del mes, el saldo y el resultado del mes en pesos."
+              fetchpriority="high"
+            />
+            <img
+              class="t-dark"
+              src="assets/app/inicio-dark.png"
+              width="780"
+              height="1688"
+              alt="Pantalla de Inicio de Gastar: el disponible para gastar del mes, el saldo y el resultado del mes en pesos."
+              loading="lazy"
+            />
+          </div>
         </figure>
-        <figure>
-          <p class="figure num">US$1.234,56</p>
-          <figcaption>Así se escriben los dólares.</figcaption>
+      </section>
+
+      <section class="section container split" aria-labelledby="anotar-title">
+        <div class="s2-text">
+          <h2 id="anotar-title">Anotá un gasto en segundos</h2>
+          <dl class="rows">
+            <div>
+              <dt>Tres tipos</dt>
+              <dd>Ingreso, gasto o transferencia, con cuenta y categoría.</dd>
+            </div>
+            <div>
+              <dt>Repetir cada mes</dt>
+              <dd>Te lo recordamos el mismo día de cada mes.</dd>
+            </div>
+            <div>
+              <dt>Entre monedas</dt>
+              <dd>Pasá de pesos a dólares con tu propia cotización.</dd>
+            </div>
+          </dl>
+          <aside class="soon" aria-label="Próximamente">
+            <p class="chip">Próximamente</p>
+            <p><strong>Importá desde Mercado Pago.</strong></p>
+            <p>Llegan listos para que los apruebes o los descartes.</p>
+          </aside>
+        </div>
+        <figure class="shot s2-shot">
+          <div class="crop">
+            <img
+              class="t-light"
+              src="assets/app/nuevo-light.png"
+              width="780"
+              height="1688"
+              loading="lazy"
+              alt="Pantalla Nuevo movimiento de Gastar: selector de ingreso, gasto o transferencia, monto, descripción, cuenta, categoría, fecha y la opción Repetir cada mes."
+            />
+            <img
+              class="t-dark"
+              src="assets/app/nuevo-dark.png"
+              width="780"
+              height="1688"
+              loading="lazy"
+              alt="Pantalla Nuevo movimiento de Gastar: selector de ingreso, gasto o transferencia, monto, descripción, cuenta, categoría, fecha y la opción Repetir cada mes."
+            />
+          </div>
         </figure>
+      </section>
+
+      <section class="band band-2" aria-labelledby="plan-title">
+        <div class="container split">
+          <div class="s3-text">
+            <h2 id="plan-title">Un tope por categoría</h2>
+            <p class="lede">Un plan en cinco pasos, con sugerencias.</p>
+            <dl class="rows">
+              <div>
+                <dt>Fijos</dt>
+                <dd>Los ingresos y pagos que se repiten cada mes.</dd>
+              </div>
+              <div>
+                <dt>Ahorro</dt>
+                <dd>Cuánto querés guardar cada mes.</dd>
+              </div>
+              <div>
+                <dt>Límites</dt>
+                <dd>Un tope mensual por categoría.</dd>
+              </div>
+            </dl>
+          </div>
+          <figure class="shot s3-shot">
+            <div class="crop">
+              <img
+                class="t-light"
+                src="assets/app/plan-light.png"
+                width="780"
+                height="1688"
+                loading="lazy"
+                alt="Pantalla Plan de Gastar: disponible del mes, ingresos, ahorro, pagos fijos pendientes y límites por categoría con el estado Vas rápido."
+              />
+              <img
+                class="t-dark"
+                src="assets/app/plan-dark.png"
+                width="780"
+                height="1688"
+                loading="lazy"
+                alt="Pantalla Plan de Gastar: disponible del mes, ingresos, ahorro, pagos fijos pendientes y límites por categoría con el estado Vas rápido."
+              />
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section container split" aria-labelledby="mes-title">
+        <div class="pair s4-shots">
+          <figure class="shot">
+            <div class="crop">
+              <img
+                class="t-light"
+                src="assets/app/reportes-light.png"
+                width="780"
+                height="1688"
+                loading="lazy"
+                alt="Pantalla Reportes de Gastar: resultado del mes con ingresos y gastos, y barras de los últimos seis meses."
+              />
+              <img
+                class="t-dark"
+                src="assets/app/reportes-dark.png"
+                width="780"
+                height="1688"
+                loading="lazy"
+                alt="Pantalla Reportes de Gastar: resultado del mes con ingresos y gastos, y barras de los últimos seis meses."
+              />
+            </div>
+            <figcaption>Reportes del mes.</figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="crop">
+              <img
+                class="t-light"
+                src="assets/app/movimientos-light.png"
+                width="780"
+                height="1688"
+                loading="lazy"
+                alt="Pantalla Movimientos de Gastar: búsqueda, filtros y movimientos agrupados por día."
+              />
+              <img
+                class="t-dark"
+                src="assets/app/movimientos-dark.png"
+                width="780"
+                height="1688"
+                loading="lazy"
+                alt="Pantalla Movimientos de Gastar: búsqueda, filtros y movimientos agrupados por día."
+              />
+            </div>
+            <figcaption>Movimientos con filtros.</figcaption>
+          </figure>
+        </div>
+        <div class="s4-text">
+          <h2 id="mes-title">Mirá el mes entero</h2>
+          <p class="lede">Entendelo y encontrá cualquier gasto.</p>
+          <dl class="rows">
+            <div>
+              <dt>Reportes</dt>
+              <dd>Totales y barras de seis meses.</dd>
+            </div>
+            <div>
+              <dt>Gastos</dt>
+              <dd>Por categoría y promedio diario.</dd>
+            </div>
+            <div>
+              <dt>Mayor</dt>
+              <dd>Tu mayor gasto del mes.</dd>
+            </div>
+            <div>
+              <dt>Buscar</dt>
+              <dd>Por texto y con filtros.</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section container split" aria-labelledby="avisos-title">
+        <div class="s5-text">
+          <h2 id="avisos-title">Avisos de pagos y límites</h2>
+          <p class="lede">Los ves en la campana de la app.</p>
+          <dl class="rows">
+            <div>
+              <dt>Pago vencido</dt>
+              <dd>Cuántos días pasaron desde el vencimiento.</dd>
+            </div>
+            <div>
+              <dt>Vas rápido</dt>
+              <dd>Gastaste buena parte del límite y quedan días.</dd>
+            </div>
+            <div>
+              <dt>Te pasaste</dt>
+              <dd>Superaste el límite de una categoría.</dd>
+            </div>
+          </dl>
+        </div>
+        <figure class="shot s5-shot">
+          <div class="crop">
+            <img
+              class="t-light"
+              src="assets/app/avisos-light.png"
+              width="780"
+              height="1688"
+              loading="lazy"
+              alt="Pantalla Avisos de Gastar: un pago fijo vencido, una categoría que va rápido y otra que se pasó del límite."
+            />
+            <img
+              class="t-dark"
+              src="assets/app/avisos-dark.png"
+              width="780"
+              height="1688"
+              loading="lazy"
+              alt="Pantalla Avisos de Gastar: un pago fijo vencido, una categoría que va rápido y otra que se pasó del límite."
+            />
+          </div>
+        </figure>
+      </section>
+
+      <section class="band band-3" aria-labelledby="monedas-title">
+        <div class="container">
+          <h2 class="statement" id="monedas-title">
+            Pesos y dólares, cada uno en su libro
+          </h2>
+          <p class="lede">
+            Nunca se convierten ni se suman. Cada moneda lleva su propio saldo.
+          </p>
+          <div class="ledger">
+            <figure>
+              <p class="figure num">$1.234.568</p>
+              <figcaption>Así se escriben los pesos.</figcaption>
+            </figure>
+            <figure>
+              <p class="figure num">US$1.234,56</p>
+              <figcaption>Así se escriben los dólares.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container split" aria-labelledby="datos-title">
+        <div class="s7-text">
+          <h2 id="datos-title">Tus datos son solo tuyos</h2>
+          <dl class="rows">
+            <div>
+              <dt>Privados</dt>
+              <dd>Cada usuario ve solo sus propios datos.</dd>
+            </div>
+            <div>
+              <dt>Acceso</dt>
+              <dd>Email y contraseña, verificados por email.</dd>
+            </div>
+            <div>
+              <dt>Cuentas y categorías</dt>
+              <dd>Con el color y el ícono que elijas.</dd>
+            </div>
+            <div>
+              <dt>Tema</dt>
+              <dd>Claro, oscuro o el de tu celular.</dd>
+            </div>
+            <div>
+              <dt>App</dt>
+              <dd>Se instala en el celular como PWA.</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="pair s7-shots">
+          <figure class="shot">
+            <div class="crop">
+              <img
+                src="assets/app/inicio-light.png"
+                width="780"
+                height="1688"
+                loading="lazy"
+                alt="Inicio de Gastar en tema claro, fondo crema."
+              />
+            </div>
+            <figcaption>Tema claro.</figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="crop">
+              <img
+                src="assets/app/inicio-dark.png"
+                width="780"
+                height="1688"
+                loading="lazy"
+                alt="Inicio de Gastar en tema oscuro, fondo casi negro."
+              />
+            </div>
+            <figcaption>Tema oscuro.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="band band-2" aria-labelledby="cierre-title">
+        <div class="container split">
+          <h2 class="s8-text" id="cierre-title">
+            Anotá tu primer movimiento hoy
+          </h2>
+          <div class="actions s8-act">
+            <a class="btn" href="https://web.gastar.app/signup">Crear cuenta</a>
+            <a class="btn btn--quiet" href="https://web.gastar.app/login"
+              >Ya tengo cuenta</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container foot">
+      <div>
+        <a class="mark" href="/" aria-label="Gastar, inicio">Gastar</a>
+        <p>Un libro de cuentas privado para Argentina.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="section container split" aria-labelledby="datos-title">
-    <div class="s7-text">
-      <h2 id="datos-title">Tus datos son solo tuyos</h2>
-      <dl class="rows">
-        <div><dt>Privados</dt><dd>Cada usuario ve solo sus propios datos.</dd></div>
-        <div><dt>Acceso</dt><dd>Email y contraseña, verificados por email.</dd></div>
-        <div><dt>Cuentas y categorías</dt><dd>Con el color y el ícono que elijas.</dd></div>
-        <div><dt>Tema</dt><dd>Claro, oscuro o el de tu celular.</dd></div>
-        <div><dt>App</dt><dd>Se instala en el celular como PWA.</dd></div>
-      </dl>
-    </div>
-    <div class="pair s7-shots">
-      <figure class="shot">
-        <div class="crop"><img src="assets/app/inicio-light.png" width="780" height="1688" loading="lazy" alt="Inicio de Gastar en tema claro, fondo crema."></div>
-        <figcaption>Tema claro.</figcaption>
-      </figure>
-      <figure class="shot">
-        <div class="crop"><img src="assets/app/inicio-dark.png" width="780" height="1688" loading="lazy" alt="Inicio de Gastar en tema oscuro, fondo casi negro."></div>
-        <figcaption>Tema oscuro.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="band band-2" aria-labelledby="cierre-title">
-    <div class="container split">
-      <h2 class="s8-text" id="cierre-title">Anotá tu primer movimiento hoy</h2>
-      <div class="actions s8-act">
-        <a class="btn" href="https://web.gastar.app/signup">Crear cuenta</a>
-        <a class="btn btn--quiet" href="https://web.gastar.app/login">Ya tengo cuenta</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="container foot">
-  <div>
-    <a class="mark" href="/" aria-label="Gastar, inicio">Gastar</a>
-    <p>Un libro de cuentas privado para Argentina.</p>
-  </div>
-  <ul>
-    <li><a href="/privacidad/">Privacidad</a></li>
-    <li><a href="/terminos/">Términos</a></li>
-    <li><a href="mailto:soporte@gastar.app">Soporte</a></li>
-    <li><a href="https://web.gastar.app/login">Ingresar</a></li>
-  </ul>
-</footer>
-<div class="grain" aria-hidden="true"></div>
-<script>
-(function () {
-  var r = document.documentElement, k = 'gastar-theme', c = document.querySelector('.theme');
-  if (!c) return;
-  var bs = c.querySelectorAll('button');
-  function cur() { try { var t = localStorage.getItem(k); return t === 'light' || t === 'dark' ? t : 'system'; } catch (e) { return 'system'; } }
-  function show(v) { bs.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-theme-set') === v)); }); }
-  show(cur());
-  c.hidden = false;
-  bs.forEach(function (b) {
-    b.addEventListener('click', function () {
-      var v = b.getAttribute('data-theme-set');
-      if (v === 'system') r.removeAttribute('data-theme'); else r.setAttribute('data-theme', v);
-      try { if (v === 'system') localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) {}
-      show(v);
-    });
-  });
-})();
-</script>
-</body>
+      <ul>
+        <li><a href="/privacidad/">Privacidad</a></li>
+        <li><a href="/terminos/">Términos</a></li>
+        <li><a href="mailto:soporte@gastar.app">Soporte</a></li>
+        <li><a href="https://web.gastar.app/login">Ingresar</a></li>
+      </ul>
+    </footer>
+    <div class="grain" aria-hidden="true"></div>
+    <script>
+      (function () {
+        var r = document.documentElement,
+          k = "gastar-theme",
+          c = document.querySelector(".theme");
+        if (!c) return;
+        var bs = c.querySelectorAll("button");
+        function cur() {
+          try {
+            var t = localStorage.getItem(k);
+            return t === "light" || t === "dark" ? t : "system";
+          } catch (e) {
+            return "system";
+          }
+        }
+        function show(v) {
+          bs.forEach(function (b) {
+            b.setAttribute(
+              "aria-pressed",
+              String(b.getAttribute("data-theme-set") === v),
+            );
+          });
+        }
+        show(cur());
+        c.hidden = false;
+        bs.forEach(function (b) {
+          b.addEventListener("click", function () {
+            var v = b.getAttribute("data-theme-set");
+            if (v === "system") r.removeAttribute("data-theme");
+            else r.setAttribute("data-theme", v);
+            try {
+              if (v === "system") localStorage.removeItem(k);
+              else localStorage.setItem(k, v);
+            } catch (e) {}
+            show(v);
+          });
+        });
+      })();
+    </script>
+  </body>
 </html>
