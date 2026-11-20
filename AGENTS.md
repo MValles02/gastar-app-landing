@@ -20,6 +20,7 @@ Static landing page for Gastar (https://gastar.app): one `index.html` plus image
 - Files copied from infra's `standards/apps/` (`.github/**`, `.husky/pre-commit`, `.lintstagedrc.json`, `.gitattributes`, `.npmrc`, `docs/WORKFLOW.md`) are never edited here; change the template in infra and copy it to every app repo.
 - The `Dockerfile` COPYs an explicit file list: a new site asset must be added there, and the e2e asset check fails until it is.
 - `/health` returns `{"status":"ok","sha":"<commit>"}`, written at build time from the `GIT_SHA` build arg; the deploy waits on it. Keep it.
+- Public repo: the repository is public on purpose; never commit secrets, `.env*` (except examples), user data or non-public infra hostnames/IPs, and never file vulnerabilities as public issues (`docs/deployment.md`).
 - User-facing copy in Spanish (es-AR). Code, comments, commits and docs in English.
 - Only integration and E2E tests (Playwright against the built image), never unit tests.
 

@@ -20,6 +20,15 @@ This is the single-environment app repo: there is no `develop` branch and no dev
 
 No secrets at repository level. `BUILD_ARGS` is not used: the image only takes `GIT_SHA`, which the workflow always passes.
 
+## Public repository
+
+This repository is public on purpose and stays public. That means:
+
+- Never commit secrets, `.env*` files (except examples), user data, or VPS IPs, hostnames and internal URLs that are not already public. Secrets live only in GitHub Actions secrets and Dokploy.
+- PRs from forks run CI without secrets; deploys run only on pushes to `main`.
+- A `pull_request_target` workflow never checks out or runs PR code (`auto-merge.yml` has no checkout step).
+- Report vulnerabilities privately (a GitHub security advisory), never as a public issue with exploit detail.
+
 ## Dokploy
 
 - App `gastarapp-landing-rx1bqj`, source type Docker, image `ghcr.io/mvalles02/gastar-app-landing:latest`, domains `gastar.app` and `www.gastar.app`.
